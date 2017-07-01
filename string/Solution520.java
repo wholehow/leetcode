@@ -20,7 +20,7 @@ public class Solution520 {
         int cnt = 0;
         for (Character c : word.toCharArray()) {
         	if (c <= 'Z') {
-        	    cnt++;
+        		cnt++;
         	}
         }
         return cnt == 0 || cnt == word.length() || (cnt == 1 && word.charAt(0) <= 'Z');
