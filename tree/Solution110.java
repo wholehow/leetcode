@@ -1,11 +1,11 @@
 package tree;
 
-/* ÅĞ¶ÏÆ½ºâ¶ş²æÊ÷
+/* åˆ¤æ–­å¹³è¡¡äºŒå‰æ ‘
  * */
 
 public class Solution110 {
 	
-	/* µİ¹é
+	/* é€’å½’
 	 * */
     public boolean isBalanced(TreeNode root) {
     	if (getHeight(root) == -1) {
