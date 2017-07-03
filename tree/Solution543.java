@@ -15,7 +15,7 @@ public class Solution543 {
 	
 	/* 和题 Lowest Common Ancestor 分析思路特别接近。
 	 * 其实输出结果就是结点1左右子树的深度之和。
-	 * 那么我们只要对每一个结点求出其左右子树深度之和，与res进行比较就可以更新结果res了
+	 * 那么我们只要对每一个结点求出其左右子树深度之和，与res进行比较就可以更新结果res了。
 	 * */
 	
 	private int res = 0;
