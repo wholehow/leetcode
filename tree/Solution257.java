@@ -5,40 +5,40 @@ import java.util.ArrayList;
 
 import javax.management.relation.RoleUnresolved;
 
-/* ´óÒâ£º
- * ¸ø¶¨Ò»¿Ã¶ş²æÊ÷£¬·µ»ØËùÓĞ¸ùµ½Ò¶×ÓµÄÂ·¾¶¡£
+/* å¤§æ„ï¼š
+ * ç»™å®šä¸€æ£µäºŒå‰æ ‘ï¼Œè¿”å›æ‰€æœ‰æ ¹åˆ°å¶å­çš„è·¯å¾„ã€‚
  * 
- * ÀıÈç£º
- * ÊäÈë£º
+ * ä¾‹å¦‚ï¼š
+ * è¾“å…¥ï¼š
  * 1
   /   \
  2     3
   \
    5
- * Êä³ö£º["1->2->5", "1->3"]
+ * è¾“å‡ºï¼š["1->2->5", "1->3"]
  * */
 public class Solution257 {
 	
-	/* ÓÃµİ¹é£¬ÒÀ´ÎÅĞ¶ÏÓĞÃ»ÓĞ×óÓÒÒ¶×Ó½Úµã£¬·Ö±ğÈ¥×öµİ¹é£¬ÔÚµİ¹éÖĞ°ÑÓöµ½µÄ½ÚµãÖµÆ´½Óµ½Â·¾¶×Ö·û´®µÄ×îºó£¬×¢ÒâÒªÆ´½Ó¡°->¡±Õâ¸öÄÚÈİ¡£
-	 * Ö±µ½Ã»ÓĞ×óÓÒ×Ó½Úµãºó£¬±íÊ¾ÒÑ¾­µ½ÁËÒ¶×Ó½ÚµãÁË£¬¾Í¿ÉÒÔÖÕÖ¹ÁË£¬°ÑÕâÌõÂ·¾¶µÄ×Ö·û´®Ìí¼Óµ½½á¹ûÖĞÈ¥¡£
+	/* ç”¨é€’å½’ï¼Œä¾æ¬¡åˆ¤æ–­æœ‰æ²¡æœ‰å·¦å³å¶å­èŠ‚ç‚¹ï¼Œåˆ†åˆ«å»åšé€’å½’ï¼Œåœ¨é€’å½’ä¸­æŠŠé‡åˆ°çš„èŠ‚ç‚¹å€¼æ‹¼æ¥åˆ°è·¯å¾„å­—ç¬¦ä¸²çš„æœ€åï¼Œæ³¨æ„è¦æ‹¼æ¥â€œ->â€è¿™ä¸ªå†…å®¹ã€‚
+	 * ç›´åˆ°æ²¡æœ‰å·¦å³å­èŠ‚ç‚¹åï¼Œè¡¨ç¤ºå·²ç»åˆ°äº†å¶å­èŠ‚ç‚¹äº†ï¼Œå°±å¯ä»¥ç»ˆæ­¢äº†ï¼ŒæŠŠè¿™æ¡è·¯å¾„çš„å­—ç¬¦ä¸²æ·»åŠ åˆ°ç»“æœä¸­å»ã€‚
 	 * */
     private List<String> resList = new ArrayList<String>();
     
     public List<String> binaryTreePaths(TreeNode root) {
-        if(root != null) {
+        if (root != null) {
         	findPaths(root, String.valueOf(root.val));
         }
         return resList;
     }
     
     private void findPaths(TreeNode node, String path){
-        if(node.left == null && node.right == null) {
+        if (node.left == null && node.right == null) {
         	resList.add(path);
         }
-        if(node.left != null) {
+        if (node.left != null) {
         	findPaths(node.left, path + "->" + node.left.val);
         }
-        if(node.right != null) {
+        if (node.right != null) {
         	findPaths(node.right, path + "->" + node.right.val);
         }
     }
