@@ -33,7 +33,7 @@ public class Solution69 {
 	    return 0;  
 	} */
 	
-	/* 拟牛顿法，参考Wikiedia和百度百科。
+	/* 拟牛顿法，参考Wikipedia和百度百科。
 	 * */
 	
 	public int mySqrt(int x) {  
