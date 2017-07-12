@@ -47,7 +47,7 @@ public class Solution367 {
      * 36 = 1 + 3 + 5 + 7 + 9 + 11
      * ...
      * 所有的完全平方数都是若干连续正奇数的和。
-	 * */
+     * */
 	
     /*public boolean isPerfectSquare(int num) {
         int i = 1;
