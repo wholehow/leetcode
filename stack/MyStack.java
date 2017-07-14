@@ -3,27 +3,28 @@ package stack;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/* ���⣺
- * ʹ�ö���ʵ�������ջ������
- * 1.push��x��--��Ԫ��xpush��ջ��ȥ��
- * 2.pop����--�Ƴ�ջ����Ԫ�ء�
- * 3.top����--��ȡջ����Ԫ�ء�
- * 4.empty����--����ջ�Ƿ�Ϊ�ա�
+/* 大意：
+ * 使用队列实现下面的栈操作：
+ * 1.push（x）--将元素xpush到栈中去。
+ * 2.pop（）--移除栈顶的元素。
+ * 3.top（）--获取栈顶的元素。
+ * 4.empty（）--返回栈是否为空。
  * 
- * ע�⣺
- * 1.��ֻ��ʹ�ö��еı�׼��������Ҳ����ֻ��push����β���Ӷ���peek/pop��size���Ƿ�Ϊempty��������Ч�ġ�
- * 2.����������ԣ����п��ܲ���ԭ��֧�ֵġ������ʹ��list����deque��˫β���У�ģ��һ�����У�ֻҪ��ֻʹ�ö��еı�׼������
- * 3.����Լ������еĲ���������Ч�ģ����磬����pop����topһ����ջ����
+ * 注意：
+ * 1.你只能使用队列的标准操作——也就是只有push到队尾、从队首peek/pop、size和是否为empty操作是有效的。
+ * 2.根据你的语言，队列可能不是原生支持的。你可以使用list或者deque（双尾队列）模仿一个队列，只要你只使用队列的标准操作。
+ * 3.你可以假设所有的操作都是有效的（比如，不会pop或者top一个空栈）。
  * */
 
 public class MyStack {
 	
-	/* ��ʵ�ö���ʵ��ջ�޷Ǿ���һ������˳��һ����ջ�Ǻ���ȳ����������Ƚ��ȳ���
-	 * ���Ҫô�ı���г���������ȫ������ֱ�����һ��������Ϊջ��Ҫ���ģ�
-	 * Ҫô����ӵ�������ÿ�����ʱ��ȫ��ȡ����һ�飬����Ԫ�����ڶ���ȥ����������ʱ����ǵ�һ�������ˡ�
+	/* 其实用队列实现栈无非就是一个出的顺序不一样，栈是后进先出，队列是先进先出，
+	 * 因此要么改变队列出的做法，全部出完直到最后一个才是作为栈需要出的；
+	 * 要么改入队的做法，每次入的时候都全部取出来一遍，将新元素入在队首去，这样出的时候就是第一个出的了。
 	 * */
 	
     Queue<Integer> queue;
+
     /** Initialize your data structure here. */
     public MyStack() {
         queue = new LinkedList<Integer>();
