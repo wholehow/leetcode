@@ -2,24 +2,24 @@ package stack;
 
 import java.util.Stack;
 
-/* ���⣺
- * ���һ��ջ��֧��push��pop��top�Լ��ڹ̶�ʱ���ڼ�����СԪ�ء�
- * 1.push(x) -- ��Ԫ��x����ջ�С�
- * 2.pop() -- ��ջ�Ķ����Ƴ�Ԫ�ء�
- * 3.top() -- ��ȡջ��Ԫ�ء�
- * 4.getMin() -- ����ջ�е���СԪ�ء�
+/* 大意：
+ * 设计一个栈，支持push、pop、top以及在固定时间内检索最小元素。
+ * 1.push(x) -- 将元素x放入栈中。
+ * 2.pop() -- 从栈的顶端移除元素。
+ * 3.top() -- 获取栈顶元素。
+ * 4.getMin() -- 检索栈中的最小元素。
  * */
 
 public class MinStack {
 	
-	/* ����ջʱ����Ĳ���ʵ�ʵ�Ԫ��ֵ�������뵱ǰ��¼����Сֵ�Ĳ�ֵ��
-	 * �������ĸ�С���ͽ�����Ϊ��Сֵ����ʱ�ͱ�֤����ʱ���Ի�ȡ��Сֵ��
-	 * ��ջʱ��Ҫ�޸���Сֵ��
-	 * ��ȡջ��Ԫ��ʱ����Ϊջ�м�¼�Ĳ�����ԭʼֵ������Ҫ���¼����Сֵ���в�������ԭ��
-	 * ������Ŀ��submitʱ���ó���int��Χ�Ĵ��������ԣ�����ֻ����long��������
+	/* 在入栈时，入的不是实际的元素值，而是与当前记录的最小值的差值，
+	 * 如果新入的更小，就将其设为最小值，此时就保证了随时可以获取最小值。
+	 * 出栈时，要修改最小值。
+	 * 获取栈顶元素时，因为栈中记录的并不是原始值，所以要与记录的最小值进行操作来还原。
+	 * 由于题目在submit时会用超过int范围的大数来测试，所以只能用long来操作。
 	 * */
 	
-	Stack<Long> stack;
+    Stack<Long> stack;
     long min;
 
     /** initialize your data structure here. */
