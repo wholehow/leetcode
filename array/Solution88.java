@@ -13,6 +13,7 @@ public class Solution88 {
 	/* 最笨的方法就是申请一个新的数组nums，然后将nums1拷贝到nums。比较nums和nums2每个位置的大小，将较小者拷贝到nums1。
 	 * 这种方法就是空间换时间。空间复杂度O(m + n)，时间复杂度O(m + n)。
 	 * */
+	
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         if (n == 0) {
         	return;
