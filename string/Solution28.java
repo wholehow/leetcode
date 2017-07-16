@@ -12,7 +12,7 @@ public class Solution28 {
 	 * 如果中途有不一样的，那么就要从之前的位置的下一个位置开始继续遍历寻找。
 	 * */
 	
-    public int strStr(String haystack, String needle) {
+    /*public int strStr(String haystack, String needle) {
         if (needle.equals("")) {
         	return 0;
         }
@@ -35,13 +35,13 @@ public class Solution28 {
             }
         }
         return -1;
-    }
+    }*/
 	
 	/* 我们可以对上面的代码循环部分进行变形，用dis记录两个字符串的长度差。
 	 * 核心思想是使用subString方法。
 	 * */
 	
-	 /*public int strStr(String haystack, String needle) {
+	 public int strStr(String haystack, String needle) {
 		 int len1 = haystack.length();
 		 int len2 = needle.length();
 		 if (len1 < len2) {
@@ -56,5 +56,5 @@ public class Solution28 {
 			}
 		 }
 		 return -1;
-	 }*/
+	 }
 }
