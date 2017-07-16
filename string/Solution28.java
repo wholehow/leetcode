@@ -1,18 +1,18 @@
 package string;
 
-/* ´óÒâ£º
- * ÊµÏÖ strStr()¡£
- * ·µ»Ø haystack ÖĞµÚÒ»´Î³öÏÖ needle µÄÎ»ÖÃ£¬Èç¹û needle ²»ÊÇ haystack µÄÒ»²¿·ÖÔò·µ»Ø -1¡£
+/* å¤§æ„ï¼š
+ * å®ç° strStr()ã€‚
+ * è¿”å› haystack ä¸­ç¬¬ä¸€æ¬¡å‡ºç° needle çš„ä½ç½®ï¼Œå¦‚æœ needle ä¸æ˜¯ haystack çš„ä¸€éƒ¨åˆ†åˆ™è¿”å› -1ã€‚
  * */
 
 public class Solution28 {
 	
-	/* ×î¼òµ¥µÄ×ö·¨¾ÍÊÇ±éÀú haystack £¬·¢ÏÖºÍ needle µÚÒ»¸ö×Ö·ûÏàÍ¬µÄÔªËØ£¬¾Í¿ªÊ¼Öğ¸ö±È½Ï£¬
-	 * Èç¹ûÈ«²¿±ÈÍê·¢ÏÖÒ»Ñù£¬ÄÇÃ´·µ»ØÖ®Ç°ÄÇ¸ö¿ªÊ¼Î»ÖÃ¾Í¿ÉÒÔÁË£¬
-	 * Èç¹ûÖĞÍ¾ÓĞ²»Ò»ÑùµÄ£¬ÄÇÃ´¾ÍÒª´ÓÖ®Ç°µÄÎ»ÖÃµÄÏÂÒ»¸öÎ»ÖÃ¿ªÊ¼¼ÌĞø±éÀúÑ°ÕÒ¡£
+	/* æœ€ç®€å•çš„åšæ³•å°±æ˜¯éå† haystack ï¼Œå‘ç°å’Œ needle ç¬¬ä¸€ä¸ªå­—ç¬¦ç›¸åŒçš„å…ƒç´ ï¼Œå°±å¼€å§‹é€ä¸ªæ¯”è¾ƒï¼Œ
+	 * å¦‚æœå…¨éƒ¨æ¯”å®Œå‘ç°ä¸€æ ·ï¼Œé‚£ä¹ˆè¿”å›ä¹‹å‰é‚£ä¸ªå¼€å§‹ä½ç½®å°±å¯ä»¥äº†ï¼Œ
+	 * å¦‚æœä¸­é€”æœ‰ä¸ä¸€æ ·çš„ï¼Œé‚£ä¹ˆå°±è¦ä»ä¹‹å‰çš„ä½ç½®çš„ä¸‹ä¸€ä¸ªä½ç½®å¼€å§‹ç»§ç»­éå†å¯»æ‰¾ã€‚
 	 * */
 	
-    /*public int strStr(String haystack, String needle) {
+    public int strStr(String haystack, String needle) {
         if (needle.equals("")) {
         	return 0;
         }
@@ -30,13 +30,13 @@ public class Solution28 {
             }
         }
         return -1;
-    }*/
+    }
 	
-	/* ÎÒÃÇ¿ÉÒÔ¶ÔÉÏÃæµÄ´úÂëÑ­»·²¿·Ö½øĞĞ±äĞÎ£¬ÓÃdis¼ÇÂ¼Á½¸ö×Ö·û´®µÄ³¤¶È²î¡£
-	 * ºËĞÄË¼ÏëÊÇÊ¹ÓÃsubString·½·¨¡£
+	/* æˆ‘ä»¬å¯ä»¥å¯¹ä¸Šé¢çš„ä»£ç å¾ªç¯éƒ¨åˆ†è¿›è¡Œå˜å½¢ï¼Œç”¨disè®°å½•ä¸¤ä¸ªå­—ç¬¦ä¸²çš„é•¿åº¦å·®ã€‚
+	 * æ ¸å¿ƒæ€æƒ³æ˜¯ä½¿ç”¨subStringæ–¹æ³•ã€‚
 	 * */
 	
-	 public int strStr(String haystack, String needle) {
+	 /*public int strStr(String haystack, String needle) {
 		 int len1 = haystack.length();
 		 int len2 = needle.length();
 		 if (len1 < len2) {
@@ -51,5 +51,5 @@ public class Solution28 {
 			}
 		 }
 		 return -1;
-	 }
+	 }*/
 }
