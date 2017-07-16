@@ -1,24 +1,24 @@
 package two_pointers;
 
-/* ���⣺
- * ����һ�������ź�����������飬�ҳ�����������ӵ���Ŀ�����֡�
- * ���� twoSum Ӧ�÷����������ֵ�������index1 ����С�� index2��
- * ��ע���㷵�صĽ����index1 �� index2�����ǻ���0��ʼ�ġ�
- * ����Լ���ÿ�����붼��һ�������
- * ���磺
- * ���룺numbers = {2, 7, 11, 15}, target = 9 
- * �����index1 = 1, index2 = 2
+/* 大意：
+ * 给出一个递增排好序的整型数组，找出两个数组相加等于目标数字。
+ * 函数 twoSum 应该返回两个数字的索引，index1 必须小于 index2。
+ * 请注意你返回的结果（index1 和 index2）不是基于0开始的。
+ * 你可以假设每个输入都有一个结果。
+ * 例如：
+ * 输入：numbers = {2, 7, 11, 15}, target = 9 
+ * 输出：index1 = 1, index2 = 2
  */
 
 public class Solution167 {
 	
-	/* �����������˫ָ�뷨���ˣ�ֻ��Ҫ����һ���������������
-	 * ����һ��˼·���ڱ����Ĺ�����ʹ�ö��ֲ��ң���������ʱ�临�Ӷȴ�O(N)��ΪO(NlogN)��
+	/* 哈哈，经典的双指针法来了，只需要遍历一遍数组完美解决。
+	 * 还有一种思路是在遍历的过程中使用二分查找，不过会让时间复杂度从O(N)变为O(NlogN)。
 	 * */
 	
-	/*���ֵ�˼��
-	 * �ȹ̶���һ����������Ϊnums[0], ��ô���±�Ϊ1 .. n - 1�Ͻ��ж��ֲ��ң�������û��ֵΪtarget - nums[0]��
-	 * �̶���һ����Ϊnums[1], �� 2 .. n - 1�϶��ֲ��ҡ�
+	/*二分的思想
+	 * 先固定第一个数，假设为nums[0], 那么在下标为1 .. n - 1上进行二分查找，查找有没有值为target - nums[0]。
+	 * 固定第一个数为nums[1], 在 2 .. n - 1上二分查找。
 	 */
 	
 	 /*public int[] twoSum(int[] numbers, int target) {
@@ -31,7 +31,7 @@ public class Solution167 {
 			 int tmp = target - numbers[i];
 			 int left = i + 1;
 			 while (left < right) {
-				 int mid = left + (right - left) / 2;	//��ע������mid���±���㲻ͬ�ڱ�׼�Ķ���mid
+				 int mid = left + (right - left) / 2;	//请注意这里mid的下标计算不同于标准的二分mid
 				 if (numbers[mid] == tmp) {
 					 res[0] = i + 1;
 					 res[1] = mid;
@@ -46,9 +46,10 @@ public class Solution167 {
 		 return null;
 	 }*/
 	
-	/*˫ָ���˼��*/
+	/*双指针的思想*/
+	
     public int[] twoSum(int[] numbers, int target) {
-    	//��Ҫʹ���ж�����target < 0����Ϊȷʵ����������Ĳ�������T-T
+    	//不要使用判断条件target < 0，因为确实会出现那样的测试用例T-T
     	if (numbers == null || numbers.length < 2) {	
             return null;
         }
