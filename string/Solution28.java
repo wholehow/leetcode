@@ -23,10 +23,15 @@ public class Solution28 {
         for (; i < haystackArr.length;i++) {
             if (haystackArr[i] == needleArr[j]) {
                 for (int k = i; k < haystackArr.length && j < needleArr.length; k++, j++) {
-                    if (haystackArr[k] != needleArr[j]) break;
+                    if (haystackArr[k] != needleArr[j]) {
+			    break;
+		    }
                 }
-                if (j == needleArr.length) return i;
-                else j = 0;
+                if (j == needleArr.length) {
+			return i;
+		} else {
+			j = 0;
+		}
             }
         }
         return -1;
