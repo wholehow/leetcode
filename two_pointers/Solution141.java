@@ -2,9 +2,22 @@ package two_pointers;
 
 import java.util.HashSet;
 
-/* ¸ø³öÒ»¸öÁ´±í£¬ÅĞ¶ÏËüÓĞÃ»ÓĞ»Ø»·¡£
- * ½ø½×£º ÄãÄÜ²»ÄÜ²»ÓÃ¶îÍâµÄ¿Õ¼äÀ´½â¾ö£¿
+/* ç»™å‡ºä¸€ä¸ªé“¾è¡¨ï¼Œåˆ¤æ–­å®ƒæœ‰æ²¡æœ‰å›ç¯ã€‚
+ * è¿›é˜¶ï¼š ä½ èƒ½ä¸èƒ½ä¸ç”¨é¢å¤–çš„ç©ºé—´æ¥è§£å†³ï¼Ÿ
  * */
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+
 class ListNode {
      int val;
      ListNode next;
@@ -15,18 +28,18 @@ class ListNode {
 }
 public class Solution141 {
 	
-	/* ÀûÓÃ¼¯ºÏµÄÌØĞÔ¿ÉÒÔ×öµ½Ê±¼ä¸´ÔÓ¶ÈÎªO(N)£¬¿Õ¼ä¸´ÔÓ¶ÈÎªO(N)
+	/* åˆ©ç”¨é›†åˆçš„ç‰¹æ€§å¯ä»¥åšåˆ°æ—¶é—´å¤æ‚åº¦ä¸ºO(N)ï¼Œç©ºé—´å¤æ‚åº¦ä¸ºO(N)
 	 * */
 	
     /*public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
         	return false;
         }
-        //ÊÂÊµÖ¤Ã÷ÕâÀïÖ»´æ´¢ListNodeµÄ½áµãÖµÊÇ²»¿ÉÒÔµÄ
-        //µÀÀíÆäÊµºÜ¼òµ¥£¬¼´Ê¹Ã»ÓĞ»·Ò²²»´ú±í²»ÄÜÖØ¸´½áµãÖµ
+        //äº‹å®è¯æ˜è¿™é‡Œåªå­˜å‚¨ListNodeçš„ç»“ç‚¹å€¼æ˜¯ä¸å¯ä»¥çš„
+        //é“ç†å…¶å®å¾ˆç®€å•ï¼Œå³ä½¿æ²¡æœ‰ç¯ä¹Ÿä¸ä»£è¡¨ä¸èƒ½é‡å¤ç»“ç‚¹å€¼
         HashSet<ListNode> set = new HashSet<ListNode>();
         set.add(head);
-        int cnt = 1;	//ÓÃÓÚ¼ÆÊı
+        int cnt = 1;	//ç”¨äºè®¡æ•°
         while (head.next != null) {
         	set.add(head.next);
         	cnt++;
@@ -38,7 +51,7 @@ public class Solution141 {
         return false;
     }*/
 	
-	/* Ë«Ö¸Õë·¨£¬¿ìÂıÖ¸Õë
+	/* åŒæŒ‡é’ˆæ³•ï¼Œå¿«æ…¢æŒ‡é’ˆ
 	 * */
 	
     public Boolean hasCycle(ListNode head) {
