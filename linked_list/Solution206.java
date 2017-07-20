@@ -1,6 +1,6 @@
 package linked_list;
 
-/* ÄæÖÃµ¥Á´±í
+/* é€†ç½®å•é“¾è¡¨
  * */
 
 /**
@@ -14,10 +14,9 @@ package linked_list;
 
 public class Solution206 {
 	
-	/* ·Ç³£»ù´¡µÄÌâ
+	/* éå¸¸åŸºç¡€çš„é¢˜
+         * è¿­ä»£
 	 * */
-	
-	/*µü´ú*/
 	
 	/*public ListNode reverseList(ListNode head) {
 	    ListNode newHead = null;
@@ -30,7 +29,7 @@ public class Solution206 {
 	    return newHead;
 	}*/
 	
-	/*µİ¹é*/
+	/*é€’å½’*/
 	
 	public ListNode reverseList(ListNode head) {
 	    return reverseListInt(head, null);
