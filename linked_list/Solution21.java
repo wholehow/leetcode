@@ -1,6 +1,6 @@
 package linked_list;
 
-/* ºÏ²¢Á½¸öÓĞĞòµ¥Á´±í
+/* åˆå¹¶ä¸¤ä¸ªæœ‰åºå•é“¾è¡¨
  * */
 
 /**
@@ -14,10 +14,10 @@ package linked_list;
 
 public class Solution21 {
 	
-	/* ÕâÊÇÑÏ°æ¡¶Êı¾İ½á¹¹¡·ÀıÌâ
+	/* è¿™æ˜¯ä¸¥ç‰ˆã€Šæ•°æ®ç»“æ„ã€‹ä¾‹é¢˜
+	 * é€’å½’
 	 * */
 	
-	/* µİ¹é·¨ */
     /*public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null || l2 == null) {
         	return l1 == null ? l2 : l1;
@@ -31,7 +31,7 @@ public class Solution21 {
         }
     }*/
     
-    /* ·Çµİ¹é·¨ */
+    /* éé€’å½’æ³• */
     
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null || l2 == null) {
