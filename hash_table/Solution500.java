@@ -35,7 +35,7 @@ public class Solution500 {
         for (String word : words) {
         	char[] letters = word.toLowerCase().toCharArray();	//这里必须要忽略大小写
         	boolean sameRow = true;
-        	int rowIndex = map.get(letters[0]);
+        	int rowIndex = map.get(letters[0]);	//用第一个字母作为基准与之后的字母进行比较判断是否在同一行
         	for (char letter : letters) {
         		if (rowIndex != map.get(letter)) {
         			sameRow = false;
