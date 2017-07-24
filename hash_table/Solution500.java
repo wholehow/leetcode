@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/* ´óÒâ£º
- * ¼üÅÌĞĞ¡£
- * ¸ø³öÒ»¸öµ¥´ÊÁĞ±í£¬·µ»Ø¿ÉÒÔÊ¹ÓÃÒ»ĞĞ×ÖÄ¸¼üÈëµÄµ¥´Ê£¬¹æ¶¨¼üÅÌÎªÃÀÊ½¼üÅÌ¡£
- * ÀıÈç£º
- * ÊäÈë£º["Hello", "Alaska", "Dad", "Peace"]
- * Êä³ö£º["Alaska", "Dad"]
- * ×¢Òâ£º
- * 1.Äã¿ÉÒÔ¶à´ÎÊ¹ÓÃ¼üÅÌÖĞµÄÒ»¸ö×Ö·û¡£
- * 2.Äã¿ÉÒÔ¼Ù¶¨ÊäÈë×Ö·û´®Ö»°üº¬×ÖÄ¸±í¡£
+/* å¤§æ„ï¼š
+ * é”®ç›˜è¡Œã€‚
+ * ç»™å‡ºä¸€ä¸ªå•è¯åˆ—è¡¨ï¼Œè¿”å›å¯ä»¥ä½¿ç”¨ä¸€è¡Œå­—æ¯é”®å…¥çš„å•è¯ï¼Œè§„å®šé”®ç›˜ä¸ºç¾å¼é”®ç›˜ã€‚
+ * ä¾‹å¦‚ï¼š
+ * è¾“å…¥ï¼š["Hello", "Alaska", "Dad", "Peace"]
+ * è¾“å‡ºï¼š["Alaska", "Dad"]
+ * æ³¨æ„ï¼š
+ * 1.ä½ å¯ä»¥å¤šæ¬¡ä½¿ç”¨é”®ç›˜ä¸­çš„ä¸€ä¸ªå­—ç¬¦ã€‚
+ * 2.ä½ å¯ä»¥å‡å®šè¾“å…¥å­—ç¬¦ä¸²åªåŒ…å«å­—æ¯è¡¨ã€‚
  * */
 
 public class Solution500 {
 	
-	/* Ê×ÏÈĞèÒª´æ´¢ÃÀÊ½¼üÅÌÃ¿Ò»ĞĞµÄ×Ö·ûĞòÁĞ¡£¶ÔÓÚÃ¿Ò»¸öĞòÁĞ´æÈëHashMap£¬key=char£¬value=¶ÔÓÚµ±Ç°ĞòÁĞÀ´ËµËüµÄË÷Òı¡£
-	 * ¶ÔÓÚÃ¿Ò»¸ö¸ø¶¨µÄµ¥´Ê£¬´Ó×óµ½ÓÒÉ¨Ãè£¬ÅĞ¶ÁµÚÒ»¸öÓëÆäºóµÄËùÓĞletterÊÇ·ñÔÚÍ¬Ò»ĞĞ¡£×îºóµÄ½á¹ûÓÃArrayList±£´æ£¬ÔÚ×ª»»ÎªStringÊı×é¡£
+	/* é¦–å…ˆéœ€è¦å­˜å‚¨ç¾å¼é”®ç›˜æ¯ä¸€è¡Œçš„å­—ç¬¦åºåˆ—ã€‚å¯¹äºæ¯ä¸€ä¸ªåºåˆ—å­˜å…¥HashMapï¼Œkey=charï¼Œvalue=å¯¹äºå½“å‰åºåˆ—æ¥è¯´å®ƒçš„ç´¢å¼•ã€‚
+	 * å¯¹äºæ¯ä¸€ä¸ªç»™å®šçš„å•è¯ï¼Œä»å·¦åˆ°å³æ‰«æï¼Œåˆ¤è¯»ç¬¬ä¸€ä¸ªä¸å…¶åçš„æ‰€æœ‰letteræ˜¯å¦åœ¨åŒä¸€è¡Œã€‚æœ€åçš„ç»“æœç”¨ArrayListä¿å­˜ï¼Œåœ¨è½¬æ¢ä¸ºStringæ•°ç»„ã€‚
 	 * */
 	
     public String[] findWords(String[] words) {
-        String[] rows = {"qwertyuiop", "asdfghjkl", "zxcvbnm"};
+        String[] rows = {"qwertyuiop", "asdfghjkl", "zxcvbnm"};	
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < rows.length; i++) {
         	for (char letter : rows[i].toCharArray()) {
@@ -33,7 +33,7 @@ public class Solution500 {
         }
         List<String> list = new ArrayList<>();
         for (String word : words) {
-        	char[] letters = word.toLowerCase().toCharArray();
+        	char[] letters = word.toLowerCase().toCharArray();	//è¿™é‡Œå¿…é¡»è¦å¿½ç•¥å¤§å°å†™
         	boolean sameRow = true;
         	int rowIndex = map.get(letters[0]);
         	for (char letter : letters) {
