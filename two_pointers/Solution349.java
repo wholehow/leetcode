@@ -1,27 +1,27 @@
-package two_pointers;
+package hash_table;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
-/* å¤§æ„ï¼š
- * å¯»æ‰¾ä¸¤ä¸ªæ•°ç»„ç›¸äº¤çš„éƒ¨åˆ†ã€‚
- * ä¾‹å¦‚ï¼šç»™å®šnums1 = [1, 2, 2, 1]ï¼Œnums2 = [2, 2]ï¼Œè¿”å›[2]ã€‚
- * æ³¨æ„ï¼š
- * 1.ç»“æœä¸­çš„æ¯ä¸ªå…ƒç´ å¿…é¡»å”¯ä¸€
- * 2.ç»“æœå¯ä»¥ä¸ºä»»æ„é¡ºåº
+/* ´óÒâ£º
+ * Ñ°ÕÒÁ½¸öÊı×éÏà½»µÄ²¿·Ö¡£
+ * ÀıÈç£º¸ø¶¨nums1 = [1, 2, 2, 1]£¬nums2 = [2, 2]£¬·µ»Ø[2]¡£
+ * ×¢Òâ£º
+ * 1.½á¹ûÖĞµÄÃ¿¸öÔªËØ±ØĞëÎ¨Ò»
+ * 2.½á¹û¿ÉÒÔÎªÈÎÒâË³Ğò
  * */
 
 public class Solution349 {
 	
-	/* ä¸ºç¡®ä¿ç»“æœå”¯ä¸€ï¼Œéœ€è¦å…ˆå°†æ•°ç»„æ’åºã€‚
-	 * å› ä¸ºæ˜¯è¦å¯»æ‰¾ä¸¤ä¸ªæ•°ç»„ç›¸äº¤çš„éƒ¨åˆ†ï¼Œç”³è¯·ä¸€ä¸ªæ–°çš„æ•°ç»„tempæš‚å­˜nums1å’Œnumsç›¸äº¤çš„éƒ¨åˆ†ã€‚å…¶é•¿åº¦ä¸ºnums1.lengthï¼ˆå…¶å®
-	 * æ›´åˆç†åº”è¯¥æ˜¯nums1å’Œnums2ä¸­lengthçš„è¾ƒå¤§è€…ï¼‰ã€‚
-	 * åªè¦nums1[i] == nums2[j]ï¼ˆiå’Œjå•ç‹¬å¾ªç¯ï¼‰ï¼Œå°±å°†ç»“æœä¿å­˜åœ¨tempä¸­ã€‚
-	 * ç”¨indexè®°å½•å½“å‰tempå ç”¨å…ƒç´ çš„ä½ç½®ã€‚
-	 * æœ€åå°†tempçš„å…ƒç´ ä¸€ä¸ªä¸ªå–å‡ºæ¥å­˜å…¥æ–°çš„resultã€‚
+	/* ÎªÈ·±£½á¹ûÎ¨Ò»£¬ĞèÒªÏÈ½«Êı×éÅÅĞò¡£
+	 * ÒòÎªÊÇÒªÑ°ÕÒÁ½¸öÊı×éÏà½»µÄ²¿·Ö£¬ÉêÇëÒ»¸öĞÂµÄÊı×étempÔİ´ænums1ºÍnumsÏà½»µÄ²¿·Ö¡£Æä³¤¶ÈÎªnums1.length£¨ÆäÊµ
+	 * ¸üºÏÀíÓ¦¸ÃÊÇnums1ºÍnums2ÖĞlengthµÄ½Ï´óÕß£©¡£
+	 * Ö»Òªnums1[i] == nums2[j]£¨iºÍjµ¥¶ÀÑ­»·£©£¬¾Í½«½á¹û±£´æÔÚtempÖĞ¡£
+	 * ÓÃindex¼ÇÂ¼µ±Ç°tempÕ¼ÓÃÔªËØµÄÎ»ÖÃ¡£
+	 * ×îºó½«tempµÄÔªËØÒ»¸ö¸öÈ¡³öÀ´´æÈëĞÂµÄresult¡£
 	 * */
 	
-    public int[] intersection(int[] nums1, int[] nums2) {
+    /*public int[] intersection(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
         
@@ -30,7 +30,7 @@ public class Solution349 {
         int index = 0;
         while (i < nums1.length && j < nums2.length) {
             if (nums1[i] == nums2[j]) {
-            	// ä¿è¯ç»“æœå”¯ä¸€
+            	// ±£Ö¤½á¹ûÎ¨Ò»
                 if (index == 0 || temp[index - 1] != nums1[i]) {
                     temp[index++] = nums1[i];
                 }
@@ -42,28 +42,28 @@ public class Solution349 {
                 j++;
             }
         }
-        // è¿™é‡Œå¿…é¡»ä½¿ç”¨æ–°çš„æ•°ç»„æ¥ä¿å­˜ç»“æœï¼Œä¸ç„¶æµ‹è¯•ç”¨ä¾‹ä¸­ä¸€ä¸ªéç©ºä¸€ä¸ªä¸ºç©ºçš„è¾“å…¥ä¸€å®šé€šä¸è¿‡
+        // ÕâÀï±ØĞëÊ¹ÓÃĞÂµÄÊı×éÀ´±£´æ½á¹û£¬²»È»²âÊÔÓÃÀıÖĞÒ»¸ö·Ç¿ÕÒ»¸öÎª¿ÕµÄÊäÈëÒ»¶¨Í¨²»¹ı
         int[] result = new int[index];
         for (int k = 0; k < index; k++) {
             result[k] = temp[k];
         }
         
         return result;
-    }
+    }*/
 	
-	/* ç±»ä¼¼141ï¼Œåˆ©ç”¨é›†åˆçš„æ€§è´¨ã€‚å¯ä»¥ä½¿ç”¨setä¹Ÿå¯ä»¥ä½¿ç”¨mapã€‚
+	/* ÀàËÆ141£¬ÀûÓÃ¼¯ºÏµÄĞÔÖÊ¡£¿ÉÒÔÊ¹ÓÃsetÒ²¿ÉÒÔÊ¹ÓÃmap¡£
 	 * */
 	
-    /*public int[] intersection(int[] nums1, int[] nums2) {
+    public int[] intersection(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null) {
             return null;
         }
-        // å°†nums1çš„å…¨éƒ¨ä¸é‡å¤å…ƒç´ æ”¾å…¥set
+        // ½«nums1µÄÈ«²¿²»ÖØ¸´ÔªËØ·ÅÈëset
         HashSet<Integer> set = new HashSet<Integer>();
         for (int i = 0; i < nums1.length; i++) {
             set.add(nums1[i]);
         }
-        // å¯»æ‰¾nums1ä¸­æœ‰ä¸”åœ¨setä¸­å‡ºç°ï¼Œä½†æ˜¯åœ¨resSetä¸­æ²¡æœ‰å‡ºç°çš„å…ƒç´ 
+        // Ñ°ÕÒnums1ÖĞÓĞÇÒÔÚsetÖĞ³öÏÖ£¬µ«ÊÇÔÚresSetÖĞÃ»ÓĞ³öÏÖµÄÔªËØ
         HashSet<Integer> resSet = new HashSet<Integer>();
         for (int i = 0; i < nums2.length; i++) {
             if (set.contains(nums2[i]) && !resSet.contains(nums2[i])) {
@@ -79,6 +79,6 @@ public class Solution349 {
         }
         
         return result;
-    }*/
+    }
 
 }
