@@ -3,13 +3,13 @@ package array;
 import java.util.ArrayList;
 import java.util.List;
 
-/* ¸ø³öÒ»¸öÐòºÅk£¬·µ»ØÑî»ÔÈý½ÇÐÎµÄµÚkÐÐ¡£
- * ±ÈÈç¸ø³ö k = 3£¬ ·µ»Ø [1,3,3,1]¡£
- * */
+/* ç»™å‡ºä¸€ä¸ªåºå·kï¼Œè¿”å›žæ¨è¾‰ä¸‰è§’å½¢çš„ç¬¬kè¡Œã€‚
+ * æ¯”å¦‚ç»™å‡º k = 3ï¼Œ è¿”å›ž [1,3,3,1]ã€‚
+ */
 
 public class Solution119 {
 	
-	/* ³£¹æµÄË¼Â·¾ÍÊÇÔÚ118µÄ»ù´¡ÉÏ½øÐÐÐÞ¸Ä£¬Ö»·µ»ØµÚrowIndexÐÐµÄArrayList¡£
+	/* å¸¸è§„çš„æ€è·¯å°±æ˜¯åœ¨118çš„åŸºç¡€ä¸Šè¿›è¡Œä¿®æ”¹ï¼Œåªè¿”å›žç¬¬rowIndexè¡Œçš„ArrayListã€‚
 	 * */
 	
     /*public List<Integer> getRow(int rowIndex) {
@@ -30,16 +30,16 @@ public class Solution119 {
         return resList;
     }*/
 	
-	/* Í»È»Ïëµ½DPÖÐÊ¹ÓÃµ½µÄ¾ØÕóÑ¹ËõË¼Ïë¡£
+	/* çªç„¶æƒ³åˆ°DPä¸­ä½¿ç”¨åˆ°çš„çŸ©é˜µåŽ‹ç¼©æ€æƒ³ã€‚
 	 * 
-	 * ÈÃÎÒÃÇÀ´¿´¿´Ñî»ÔÈý½ÇÊÇÈçºÎÐÎ³ÉµÄ¡£
-	 * µÚk²ãÓÐk¸öÔªËØ
-	 * Ã¿²ãµÚÒ»¸öÒÔ¼°×îºóÒ»¸öÔªËØÖµÎª1
-	 * ¶ÔÓÚµÚk£¨k > 2£©²ãµÚn£¨n > 1 && n < k£©¸öÔªËØA[k][n]£¬A[k][n] = A[k-1][n-1] + A[k-1][n]
+	 * è®©æˆ‘ä»¬æ¥çœ‹çœ‹æ¨è¾‰ä¸‰è§’æ˜¯å¦‚ä½•å½¢æˆçš„ã€‚
+	 * ç¬¬kå±‚æœ‰kä¸ªå…ƒç´ 
+	 * æ¯å±‚ç¬¬ä¸€ä¸ªä»¥åŠæœ€åŽä¸€ä¸ªå…ƒç´ å€¼ä¸º1
+	 * å¯¹äºŽç¬¬kï¼ˆk > 2ï¼‰å±‚ç¬¬nï¼ˆn > 1 && n < kï¼‰ä¸ªå…ƒç´ A[k][n]ï¼ŒA[k][n] = A[k-1][n-1] + A[k-1][n]
 	 * 
-	 * ¾¿Æä±¾ÖÊ£¬Ã¿¸öÎ»ÖÃµÄÊýÒªÃ´ÊÇ1£¬ÒªÃ´ÊÇÉÏÒ»²ãµÄ1Öð½¥ÀÛ¼Óµ½µ±Ç°ÐÐ¡£
-	 * Ò²¾ÍÊÇËµ£¬Ã¿¸öÎ»ÖÃµÄÊý¶¼ÊÇÈô¸É¸ö1µÄ×éºÏ£¬¶øÇÒÑî»ÔÈý½ÇÊÇÑÏ¸ñ¶Ô³ÆµÄ¡£
-	 * Õâ¾ÍÎªÎÒÃÇÏÂÃæÕâÖÖ½â·¨Ìá¹©ÁË±£ÕÏ¡£
+	 * ç©¶å…¶æœ¬è´¨ï¼Œæ¯ä¸ªä½ç½®çš„æ•°è¦ä¹ˆæ˜¯1ï¼Œè¦ä¹ˆæ˜¯ä¸Šä¸€å±‚çš„1é€æ¸ç´¯åŠ åˆ°å½“å‰è¡Œã€‚
+	 * ä¹Ÿå°±æ˜¯è¯´ï¼Œæ¯ä¸ªä½ç½®çš„æ•°éƒ½æ˜¯è‹¥å¹²ä¸ª1çš„ç»„åˆï¼Œè€Œä¸”æ¨è¾‰ä¸‰è§’æ˜¯ä¸¥æ ¼å¯¹ç§°çš„ã€‚
+	 * è¿™å°±ä¸ºæˆ‘ä»¬ä¸‹é¢è¿™ç§è§£æ³•æä¾›äº†ä¿éšœã€‚
 	 * */
 	
 	public List<Integer> getRow(int rowIndex) {
@@ -47,12 +47,12 @@ public class Solution119 {
 			return new ArrayList<Integer>();
 		}
 		List<Integer> resList = new ArrayList<Integer>();
-		//ÔÚ0µÄÎ»ÖÃÌíÉÏ1£º[1]£¬´ËÊ±ÎªµÚÒ»ÐÐ£¬²»Âú×ãÔò¼ÌÐø£»
-		//²»Ö´ÐÐÐ¡Ñ­»·£¬¼ÌÐø0µÄÎ»ÖÃÌíÉÏ1£º[1, 1]£¬´ËÊ±ÎªµÚ¶þÐÐ£¬²»Âú×ãÔò¼ÌÐø£» 
-		//²»Ö´ÐÐÐ¡Ñ­»·£¬¼ÌÐø0µÄÎ»ÖÃÌíÉÏ1£º[1, 1, 1]£¬Ö´ÐÐÐ¡Ñ­»·£¬µÃ[1, 2, 1]£¬´ËÊ±ÎªµÚÈýÐÐ£¬²»Âú×ãÔò¼ÌÐø£»
-		//´ËÊ±¼ÌÐø0µÄÎ»ÖÃÌíÉÏ1£º[1, 1, 2, 1]£¬Ö´ÐÐÐ¡Ñ­»·£¬µÃ[1, 3, 3, 1£¬´ËÊ±ÎªµÚËÄÐÐ£¬²»Âú×ãÔò¼ÌÐø£»
-		// ¡­¡­
-		//ÕâÑùÏÂÈ¥È·Êµ¿ÉÒÔµÃµ½Ã¿Ò»ÐÐµÄÊý¾Ý£¬ÆäÊµ¾ÍÊÇÔÚÒ»¸öListÄÚÄ£ÄâÑî»ÔÈý½ÇµÄÐÔÖÊ
+		//åœ¨0çš„ä½ç½®æ·»ä¸Š1ï¼š[1]ï¼Œæ­¤æ—¶ä¸ºç¬¬ä¸€è¡Œï¼Œä¸æ»¡è¶³åˆ™ç»§ç»­ï¼›
+		//ä¸æ‰§è¡Œå°å¾ªçŽ¯ï¼Œç»§ç»­0çš„ä½ç½®æ·»ä¸Š1ï¼š[1, 1]ï¼Œæ­¤æ—¶ä¸ºç¬¬äºŒè¡Œï¼Œä¸æ»¡è¶³åˆ™ç»§ç»­ï¼› 
+		//ä¸æ‰§è¡Œå°å¾ªçŽ¯ï¼Œç»§ç»­0çš„ä½ç½®æ·»ä¸Š1ï¼š[1, 1, 1]ï¼Œæ‰§è¡Œå°å¾ªçŽ¯ï¼Œå¾—[1, 2, 1]ï¼Œæ­¤æ—¶ä¸ºç¬¬ä¸‰è¡Œï¼Œä¸æ»¡è¶³åˆ™ç»§ç»­ï¼›
+		//æ­¤æ—¶ç»§ç»­0çš„ä½ç½®æ·»ä¸Š1ï¼š[1, 1, 2, 1]ï¼Œæ‰§è¡Œå°å¾ªçŽ¯ï¼Œå¾—[1, 3, 3, 1ï¼Œæ­¤æ—¶ä¸ºç¬¬å››è¡Œï¼Œä¸æ»¡è¶³åˆ™ç»§ç»­ï¼›
+		// â€¦â€¦
+		//è¿™æ ·ä¸‹åŽ»ç¡®å®žå¯ä»¥å¾—åˆ°æ¯ä¸€è¡Œçš„æ•°æ®ï¼Œå…¶å®žå°±æ˜¯åœ¨ä¸€ä¸ªListå†…æ¨¡æ‹Ÿæ¨è¾‰ä¸‰è§’çš„æ€§è´¨
 		for (int i = 0; i <= rowIndex; i++) {
 			resList.add(0, 1);
 			for (int j = 1; j < resList.size() - 1; j++) {
