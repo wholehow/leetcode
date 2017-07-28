@@ -1,18 +1,18 @@
 package array;
 
-/* ´óÒâ£º
- * ×îĞ¡³ß´ç×ÓÊı×éµÄºÍ
- * ¸ø¶¨n¸öÕıÕûÊıºÍÒ»¸öÕıÕûÊıµÄÊı×é£¬ÕÒµ½×ÜºÍ¡İsµÄÁ¬Ğø×ÓÕóÁĞµÄ×îĞ¡³¤¶È¡£Èç¹ûÃ»ÓĞ£¬·µ»Ø0¡£
- * ÀıÈç£º
- * ÊäÈë£º[2,3,1,2,4,3],s = 7
- * Êä³ö£º[4,3]
+/* å¤§æ„ï¼š
+ * æœ€å°å°ºå¯¸å­æ•°ç»„çš„å’Œ
+ * ç»™å®šnä¸ªæ­£æ•´æ•°å’Œä¸€ä¸ªæ­£æ•´æ•°çš„æ•°ç»„ï¼Œæ‰¾åˆ°æ€»å’Œâ‰¥sçš„è¿ç»­å­é˜µåˆ—çš„æœ€å°é•¿åº¦ã€‚å¦‚æœæ²¡æœ‰ï¼Œè¿”å›0ã€‚
+ * ä¾‹å¦‚ï¼š
+ * è¾“å…¥ï¼š[2,3,1,2,4,3],s = 7
+ * è¾“å‡ºï¼š[4,3]
  * */
 
 public class Solution209 {
 	
-	/* ×îºóÊä³öµÄ½á¹ûÊÇ×ÓÊı×é£¬ÎÒÃÇĞèÒª¼ÇÂ¼Æä±ß½ç£¬Òò´ËÊ¹ÓÃË«Ö¸Õë·¨Çó½â¡£
-	 * iºÍj×÷ÎªÎÒÃÇĞèÒªÊ¹ÓÃµÄË«Ö¸Õë¡£
-	 * iÒÆ¶¯µÄÌõ¼şÊÇµ±Ç°ºÍ´óÓÚs£¬jÒÆ¶¯µÄÌõ¼şµÄµ±Ç°ºÍĞ¡ÓÚs¡£
+	/* æœ€åè¾“å‡ºçš„ç»“æœæ˜¯å­æ•°ç»„ï¼Œæˆ‘ä»¬éœ€è¦è®°å½•å…¶è¾¹ç•Œï¼Œå› æ­¤ä½¿ç”¨åŒæŒ‡é’ˆæ³•æ±‚è§£ã€‚
+	 * iå’Œjä½œä¸ºæˆ‘ä»¬éœ€è¦ä½¿ç”¨çš„åŒæŒ‡é’ˆã€‚
+	 * iç§»åŠ¨çš„æ¡ä»¶æ˜¯å½“å‰å’Œå¤§äºsï¼Œjç§»åŠ¨çš„æ¡ä»¶çš„å½“å‰å’Œå°äºsã€‚
 	 * */
 	
     public int minSubArrayLen(int s, int[] nums) {
@@ -20,10 +20,10 @@ public class Solution209 {
     		return 0;
     	}
     	int i = 0, j = 0, sum = 0, minLen = Integer.MAX_VALUE;
-    	// ÓÒ±ß½ç×÷ÎªÅĞ¶ÏÑ­»·½áÊøµÄÌõ¼ş
+    	// å³è¾¹ç•Œä½œä¸ºåˆ¤æ–­å¾ªç¯ç»“æŸçš„æ¡ä»¶
     	while (j < nums.length) {
     		sum += nums[j++];
-    		// Ò»µ©³öÏÖsum>=s£¬ËµÃ÷µ±Ç°×ó±ß½çÒÑ¾­²»Âú×ãÁË
+    		// ä¸€æ—¦å‡ºç°sum>=sï¼Œè¯´æ˜å½“å‰å·¦è¾¹ç•Œå·²ç»ä¸æ»¡è¶³äº†
     		while (sum >= s) {
     			minLen = Math.min(minLen, j - i);
     			sum -= nums[i++];
@@ -31,4 +31,39 @@ public class Solution209 {
     	}
     	return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
+	
+    /* äºŒåˆ†æŸ¥æ‰¾ã€‚
+     * æˆ‘ä»¬æ„å»ºä¸€ä¸ªsumæ•°ç»„ï¼Œå…¶ä¿å­˜çš„å…ƒç´ æ˜¯nums[0..n]çš„å’Œã€‚
+     * æˆ‘ä»¬éœ€è¦çš„æ“ä½œå°±æ˜¯åˆ©ç”¨äºŒåˆ†æŸ¥æ‰¾æ³•ä»sumæ•°ç»„ä¸­æ‰¾åˆ°å’Œä¸ºsçš„é‚£ä¸ªå³ç•Œå€¼ã€‚
+     * */
+    
+    /*public int minSubArrayLen(int s, int[] nums) {
+        int sum = 0, min = Integer.MAX_VALUE;
+
+        int[] sums = new int[nums.length];
+        for (int i = 0; i < nums.length; i++)
+            sums[i] = nums[i] + (i == 0 ? 0 : sums[i - 1]);
+
+        for (int i = 0; i < nums.length; i++) {
+            int j = findWindowEnd(i, sums, s);
+            if (j == nums.length) break;
+            min = Math.min(j - i + 1, min);
+        }
+        
+        return min == Integer.MAX_VALUE ? 0 : min;
+    }
+
+    private int findWindowEnd(int start, int[] sums, int s) {
+        int i = start, j = sums.length - 1, offset = start == 0 ? 0 : sums[start - 1];
+        while (i <= j) {
+            int m = (i + j) / 2;
+            int sum = sums[m] - offset;
+        if (sum >= s) {
+        	j = m - 1;
+        } else {
+        	i = m + 1;
+        }
+        }
+        return i;
+    }*/
 }
