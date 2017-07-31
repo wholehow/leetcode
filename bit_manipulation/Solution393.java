@@ -38,24 +38,24 @@ public class Solution393 {
 		for (int i = 0; i < data.length; i++) {
 			if (data[i] > 255) 
 				return false; // 每个整数只表示1个字节的数据
-			int numberOfBytes = 0;
+			int bitCount = 0;
 			if ((data[i] & 128) == 0) { // 0xxxxxxx, 1 byte, 128(10000000)
-				numberOfBytes = 1;
+				bitCount = 1;
 			} else if ((data[i] & 224) == 192) { // 110xxxxx, 2 bytes, 224(11100000), 192(11000000)
-				numberOfBytes = 2;
+				bitCount = 2;
 			} else if ((data[i] & 240) == 224) { // 1110xxxx, 3 bytes, 240(11110000), 224(11100000)
-				numberOfBytes = 3;
+				bitCount = 3;
 			} else if ((data[i] & 248) == 240) { // 11110xxx, 4 bytes, 248(11111000), 240(11110000)
-				numberOfBytes = 4;
+				bitCount = 4;
 			} else {
 				return false;
 			}
-			for (int j = 1; j < numberOfBytes; j++) { //检查以10xxxxxx开头的后n位
+			for (int j = 1; j < bitCount; j++) { //检查以10xxxxxx开头的后n位
 				if (i+j >= data.length) return false;	// 超出长度
 				// 最高两位不是10
 				if ((data[i+j] & 192) != 128) return false; // 192(11000000), 128(10000000)
 			}
-			i += numberOfBytes-1;
+			i += bitCount - 1;
 		}
 		return isValid;
 	}
