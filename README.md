@@ -5,4 +5,4 @@
 # 请联系
 > 微信 QQ22423866
 
-> Email zuoquan1993cn@gmailcom
+> Email zuoquan1993cn@gmail.com
