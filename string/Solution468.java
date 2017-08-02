@@ -1,13 +1,13 @@
 package linked_list;
 
-/* ±àĞ´Ò»¸öº¯ÊıÀ´¼ì²éÊäÈë×Ö·û´®ÊÇ·ñÊÇÓĞĞ§µÄIPv4µØÖ·»òIPv6µØÖ·£¬»òÕßÁ½Õß¶¼²»ÊÇ¡£
+/* ç¼–å†™ä¸€ä¸ªå‡½æ•°æ¥æ£€æŸ¥è¾“å…¥å­—ç¬¦ä¸²æ˜¯å¦æ˜¯æœ‰æ•ˆçš„IPv4åœ°å€æˆ–IPv6åœ°å€ï¼Œæˆ–è€…ä¸¤è€…éƒ½ä¸æ˜¯ã€‚
  * */
 
 public class Solution468 {
 	
-	/* Ğ´Á½¸ö·½·¨isValidIPv4ÅĞ¶ÏÊÇ·ñÊÇÓĞĞ§µÄIPv4£¬isValidIPv6ÅĞ¶ÏÊÇ·ñÊÇÓĞĞ§µÄIPv6¡£
-	 * ÓÉÓÚIPv4ºÍIPv6¶¼ÊÇÒÔ"."×÷Îª»®·ÖµÄÒÀ¾İ£¬Òò´ËĞèÒªÁ½¸ö¶îÍâµÄ·½·¨isValidIPv4TokenºÍisValidIPv6TokenÀ´ÅĞ¶Ï
-	 * token£¨¾ÍÊÇÃ¿¸ö±»"."·Ö¿ªµÄ²¿·Ö£©ÊÇ·ñÊÇºÏ·¨µÄ¡£
+	/* å†™ä¸¤ä¸ªæ–¹æ³•isValidIPv4åˆ¤æ–­æ˜¯å¦æ˜¯æœ‰æ•ˆçš„IPv4ï¼ŒisValidIPv6åˆ¤æ–­æ˜¯å¦æ˜¯æœ‰æ•ˆçš„IPv6ã€‚
+	 * ç”±äºIPv4å’ŒIPv6éƒ½æ˜¯ä»¥"."ä½œä¸ºåˆ’åˆ†çš„ä¾æ®ï¼Œå› æ­¤éœ€è¦ä¸¤ä¸ªé¢å¤–çš„æ–¹æ³•isValidIPv4Tokenå’ŒisValidIPv6Tokenæ¥åˆ¤æ–­
+	 * tokenï¼ˆå°±æ˜¯æ¯ä¸ªè¢«"."åˆ†å¼€çš„éƒ¨åˆ†ï¼‰æ˜¯å¦æ˜¯åˆæ³•çš„ã€‚
 	 * */
 	
     public String validIPAddress(String IP) {
@@ -21,11 +21,11 @@ public class Solution468 {
     }
     
     private boolean isValidIPv4(String IP) {
-    	// ¸÷ÖÖ²»ºÏ·¨µÄÇé¿ö
+    	// å„ç§ä¸åˆæ³•çš„æƒ…å†µ
     	if (IP.length() < 7 || IP.charAt(0) == '.' || IP.charAt(IP.length() - 1) == '.') {
     		return false;
     	}
-    	// ×¢Òâ£ºÕâÀï±ØĞëÊ¹ÓÃ×ªÒå
+    	// æ³¨æ„ï¼šè¿™é‡Œå¿…é¡»ä½¿ç”¨è½¬ä¹‰
     	String[] tokens = IP.split("\\.");
     	if (tokens.length != 4) {
     		return false;
@@ -39,12 +39,12 @@ public class Solution468 {
     }
     
     private boolean isValidIPv4Token(String token) {
-    	// 01ÕâÖÖÊÇ²»ºÏ·¨µÄ
+    	// 01è¿™ç§æ˜¯ä¸åˆæ³•çš„
     	if (token.startsWith("0") && token.length() > 1) {
     		return false;
     	}
     	try {
-    		// ½«token×ª»»ÎªÕûÊı£¬Ëü±ØĞëÔÚ0-255·¶Î§
+    		// å°†tokenè½¬æ¢ä¸ºæ•´æ•°ï¼Œå®ƒå¿…é¡»åœ¨0-255èŒƒå›´
     		int parsedInt = Integer.parseInt(token);
     		if (parsedInt < 0 || parsedInt > 255) {
     			return false;
@@ -59,11 +59,11 @@ public class Solution468 {
     }
     
     private boolean isValidIPv6(String IP) {
-    	// ¸÷ÖÖ²»ºÏ·¨µÄÇé¿ö
+    	// å„ç§ä¸åˆæ³•çš„æƒ…å†µ
     	if (IP.length() < 15 || IP.charAt(0) == ':' || IP.charAt(IP.length() - 1) == ':') {
     		return false;
     	}
-    	// ÕâÀï¿ÉÒÔ²»ÓÃ×ªÒå
+    	// è¿™é‡Œå¯ä»¥ä¸ç”¨è½¬ä¹‰
     	String[] tokens = IP.split(":");
     	if (tokens.length != 8) {
     		return false;
@@ -82,7 +82,7 @@ public class Solution468 {
     	}
     	char[] chs = token.toCharArray();
     	for (int i = 0; i < chs.length; i++) {
-    		// 0-9£¬a-f£¬A-F
+    		// 0-9ï¼Œa-fï¼ŒA-F
     		if (!(Character.isDigit(chs[i]) || (chs[i] >= 'a' && chs[i] <= 'f') || (chs[i] >= 'A' && chs[i] <= 'F'))) {
     			return false;
     		}
@@ -90,12 +90,14 @@ public class Solution468 {
     	return true;
     }
     
-    /* Ê¹ÓÃJavaÕıÔò
+    /* ä½¿ç”¨Javaæ­£åˆ™
      * */
     
     /*public String validIPAddress(String IP) {
+    	 // ä»¥.éš”å¼€å…ˆå•ç‹¬åŒ¹é…3æ¬¡ï¼Œå†åŒ¹é…æœ€åä¸€ä¸ª
         if (IP.matches("(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])")) return "IPv4";
-        if (IP.matches("(([0-9a-fA-F]{1,4}):){7}([0-9a-fA-F]{1,4})")) return "IPv6";
+         // ä»¥:éš”å¼€å…ˆå•ç‹¬åŒ¹é…7æ¬¡ï¼Œå†åŒ¹é…æœ€åä¸€ä¸ª
+	if (IP.matches("(([0-9a-fA-F]{1,4}):){7}([0-9a-fA-F]{1,4})")) return "IPv6";
         return "Neither";
     }*/
 }
