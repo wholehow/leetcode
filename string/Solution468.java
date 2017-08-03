@@ -1,4 +1,4 @@
-package linked_list;
+package string;
 
 /* 编写一个函数来检查输入字符串是否是有效的IPv4地址或IPv6地址，或者两者都不是。
  * */
