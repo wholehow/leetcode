@@ -1,13 +1,13 @@
-package linked_list;
+package string;
 
 import java.awt.List;
 import java.util.ArrayList;
 
-/* Éú³ÉÀ¨ºÅ¡£
- * ¸ø¶¨n¶ÔÀ¨ºÅ£¬Ð´Ò»¸öº¯ÊýÀ´Éú³ÉÐÎÊ½Á¼ºÃµÄÀ¨ºÅµÄËùÓÐ×éºÏ¡£
- * ÀýÈç£º
- * ÊäÈë£º n = 3
- * Êä³ö£º[
+/* ç”Ÿæˆæ‹¬å·ã€‚
+ * ç»™å®šnå¯¹æ‹¬å·ï¼Œå†™ä¸€ä¸ªå‡½æ•°æ¥ç”Ÿæˆå½¢å¼è‰¯å¥½çš„æ‹¬å·çš„æ‰€æœ‰ç»„åˆã€‚
+ * ä¾‹å¦‚ï¼š
+ * è¾“å…¥ï¼š n = 3
+ * è¾“å‡ºï¼š[
   		"((()))",
   		"(()())",
   		"(())()",
@@ -18,13 +18,13 @@ import java.util.ArrayList;
 
 public class Solution22 {
 	
-	/* »ØËÝ·¨¡£
-	 * ÔÚÈÎºÎÊ±¿Ì£¬ÎÒÃÇ¶¼ÓÐÁ½ÖÖÑ¡Ôñ£º
-	 * 1.¼Ó×óÀ¨ºÅ
-	 * 2.¼ÓÓÒÀ¨ºÅ
-	 * ÔÚÈÎºÎÊ±¿Ì£¬ÎÒÃÇ¶¼ÓÐÁ½ÖÖÏÞÖÆ£º
-	 * 1.Èç¹û×óÀ¨ºÅÒÑ¾­ÓÃÍêÁË£¬Ôò²»ÄÜÔÙ¼Ó×óÀ¨ºÅÁË¡£
-	 * 4.Èç¹ûÒÑ¾­³öÏÖµÄÓÒÀ¨ºÅºÍ×óÀ¨ºÅÒ»Ñù¶à£¬Ôò²»ÄÜÔÙ¼ÓÓÒÀ¨ºÅÁË¡£ÒòÎªÄÇÑùµÄ»°ÐÂ¼ÓÈëµÄÓÒÀ¨ºÅÒ»¶¨ÎÞ·¨Æ¥Åä¡£
+	/* å›žæº¯æ³•ã€‚
+	 * åœ¨ä»»ä½•æ—¶åˆ»ï¼Œæˆ‘ä»¬éƒ½æœ‰ä¸¤ç§é€‰æ‹©ï¼š
+	 * 1.åŠ å·¦æ‹¬å·
+	 * 2.åŠ å³æ‹¬å·
+	 * åœ¨ä»»ä½•æ—¶åˆ»ï¼Œæˆ‘ä»¬éƒ½æœ‰ä¸¤ç§é™åˆ¶ï¼š
+	 * 1.å¦‚æžœå·¦æ‹¬å·å·²ç»ç”¨å®Œäº†ï¼Œåˆ™ä¸èƒ½å†åŠ å·¦æ‹¬å·äº†ã€‚
+	 * 4.å¦‚æžœå·²ç»å‡ºçŽ°çš„å³æ‹¬å·å’Œå·¦æ‹¬å·ä¸€æ ·å¤šï¼Œåˆ™ä¸èƒ½å†åŠ å³æ‹¬å·äº†ã€‚å› ä¸ºé‚£æ ·çš„è¯æ–°åŠ å…¥çš„å³æ‹¬å·ä¸€å®šæ— æ³•åŒ¹é…ã€‚
 	 * */
 	
     public List<String> generateParenthesis(int n) {
@@ -34,21 +34,21 @@ public class Solution22 {
         
     }
     private void backtrack(String subList, List<String> res, int left, int right) {
-    	// ×óÓÒÀ¨ºÅ¶¼ÒÑ¾­ÓÃÍê
-    	// ×óÓÒÀ¨ºÅÓÃÍêÒÔºó£¬Ò»¶¨ÊÇÕýÈ·½â¡£ÒòÎª1. ×óÓÒÀ¨ºÅÒ»Ñù¶à£¬2. Ã¿¸öÓÒÀ¨ºÅ¶¼Ò»¶¨ÓÐÓëÖ®Åä¶ÔµÄ×óÀ¨ºÅ¡£Òò´ËÒ»µ©½áÊø¾Í¿ÉÒÔ¼ÓÈë½â¼¯
+    	// å·¦å³æ‹¬å·éƒ½å·²ç»ç”¨å®Œ
+    	// å·¦å³æ‹¬å·ç”¨å®Œä»¥åŽï¼Œä¸€å®šæ˜¯æ­£ç¡®è§£ã€‚å› ä¸º1. å·¦å³æ‹¬å·ä¸€æ ·å¤šï¼Œ2. æ¯ä¸ªå³æ‹¬å·éƒ½ä¸€å®šæœ‰ä¸Žä¹‹é…å¯¹çš„å·¦æ‹¬å·ã€‚å› æ­¤ä¸€æ—¦ç»“æŸå°±å¯ä»¥åŠ å…¥è§£é›†
     	if (left == 0 && right == 0) {
     		res.add(subList);
     		return;
     	}
-    	// Ã¿´Î¶¼ÊÇÏÈ¼Ó×ó£¬ÔÙ¼ÓÓÒ£¬²»¿ÉÄÜ²»³öÏÖleft > right
+    	// æ¯æ¬¡éƒ½æ˜¯å…ˆåŠ å·¦ï¼Œå†åŠ å³ï¼Œä¸å¯èƒ½ä¸å‡ºçŽ°left > right
     	if (left > right) {
     		return;
     	}
-    	// ×ó»¹ÓÐÊ£Óà
+    	// å·¦è¿˜æœ‰å‰©ä½™
     	if (left > 0) {
     		backtrack(subList + "(", res, left - 1, right);
     	}
-    	// ÓÒ»¹ÓÐÊ£Óà
+    	// å³è¿˜æœ‰å‰©ä½™
     	if (right > 0) {
     		backtrack(subList + ")", res, left, right - 1);
     	}
