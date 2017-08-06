@@ -2,12 +2,12 @@ package tree;
 
 import java.util.HashMap;
 
-/* ÀûÓÃÇ°ĞòºÍÖĞĞò±éÀú»¹Ô­¶ş²æÊ÷¡£
+/* åˆ©ç”¨å‰åºå’Œä¸­åºéå†è¿˜åŸäºŒå‰æ ‘ã€‚
  * */
 
 public class Solution105 {
 	
-	/* ÀàËÆ105¡£Ö÷Òª¸ãÇå³şÏÂ±êµÄ±ä»¯ÒÔ¼°²»±ä»¯¡£
+	/* ç±»ä¼¼105ã€‚ä¸»è¦ææ¸…æ¥šä¸å˜çš„ä¸‹æ ‡ä»¥åŠä¸‹æ ‡ä½•æ—¶å˜åŒ–ã€‚
 	 * */
 	
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -15,7 +15,7 @@ public class Solution105 {
         	return null;
         }
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        // ½¨Á¢ÖĞĞò±éÀúºÍË÷ÒıµÄ¶ÔÓ¦¹ØÏµ
+        // å»ºç«‹ä¸­åºéå†å’Œç´¢å¼•çš„å¯¹åº”å…³ç³»
         for (int i = 0; i < inorder.length; i++) {
         	map.put(inorder[i], i);
         }
@@ -25,11 +25,11 @@ public class Solution105 {
     	if (pi > pj) {
     		return null;
     	}
-    	// ¸ù½áµã¼´ÎªÇ°Ğò±éÀúµÚÒ»¸ö½áµã
+    	// æ ¹ç»“ç‚¹å³ä¸ºå‰åºéå†ç¬¬ä¸€ä¸ªç»“ç‚¹
     	TreeNode root = new TreeNode(pre[pi]);
-    	// ´ÓÖĞĞò±éÀúÖĞÕÒµ½µ±Ç°¸ù½áµãµÄË÷Òı£¬½øĞĞ×óÓÒ×ÓÊ÷»®·Ö
+    	// ä»ä¸­åºéå†ä¸­æ‰¾åˆ°å½“å‰æ ¹ç»“ç‚¹çš„ç´¢å¼•ï¼Œè¿›è¡Œå·¦å³å­æ ‘åˆ’åˆ†
     	int index = map.get(pre[pi]);
-    	// ÕâÀïË÷Òı±ß»¹±È½Ï¸´ÔÓ£¬½¨ÒéÏÈÕÒ²»±äµÄ±ß½çÖµ
+    	// è¿™é‡Œç´¢å¼•è¾¹è¿˜æ¯”è¾ƒå¤æ‚ï¼Œå»ºè®®å…ˆæ‰¾ä¸å˜çš„è¾¹ç•Œå€¼
     	root.left = preIn(pre, pi + 1, pi + index - ni, in, ni, index - 1, map);
     	root.right = preIn(pre, pi + index - ni + 1, pj, in, index + 1, nj, map);
     	return root;
