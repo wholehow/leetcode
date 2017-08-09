@@ -14,7 +14,7 @@ public class Solution376 {
 	 * */
 	
     public int wiggleMaxLength(int[] nums) {
-        if(nums.length <= 1) 
+        if (nums.length <= 1) 
         	return nums.length;
         int count = 1;
         Boolean prevInc = null;
