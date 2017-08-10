@@ -3,12 +3,12 @@ package greedy;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/* ¸ø¶¨¼ä¸ôµÄ¼¯ºÏ£¬ÕÒµ½ĞèÒªÉ¾³ıµÄ×îĞ¡¼ä¸ôÊı£¬ÒÔÊ¹Ê£ÓàµÄ¼ä¸ô²»ÖØµş¡£
- * ÀıÈç£º
- * ÊäÈë£º[ [1,2], [2,3], [3,4], [1,3] ]
- * Êä³ö£º1£¬[1,3]¿ÉÒÔ±»È¥³ı£¬ÆäÓàµÄ¼ä¸ôÊÇ²»ÖØµşµÄ
- * ÊäÈë£º[ [1,2], [1,2], [1,2] ]
- * Êä³ö£º2£¬ÄãĞèÒªÉ¾³ıÁ½¸ö[1,2]£¬Ê¹ÆäÓàµÄ¼ä¸ô²»ÖØµş
+/* ç»™å®šé—´éš”çš„é›†åˆï¼Œæ‰¾åˆ°éœ€è¦åˆ é™¤çš„æœ€å°é—´éš”æ•°ï¼Œä»¥ä½¿å‰©ä½™çš„é—´éš”ä¸é‡å ã€‚
+ * ä¾‹å¦‚ï¼š
+ * è¾“å…¥ï¼š[ [1,2], [2,3], [3,4], [1,3] ]
+ * è¾“å‡ºï¼š1ï¼Œ[1,3]å¯ä»¥è¢«å»é™¤ï¼Œå…¶ä½™çš„é—´éš”æ˜¯ä¸é‡å çš„
+ * è¾“å…¥ï¼š[ [1,2], [1,2], [1,2] ]
+ * è¾“å‡ºï¼š2ï¼Œä½ éœ€è¦åˆ é™¤ä¸¤ä¸ª[1,2]ï¼Œä½¿å…¶ä½™çš„é—´éš”ä¸é‡å 
  * */
 
 class Interval {
@@ -20,8 +20,8 @@ class Interval {
 
 public class Solution435 {
 	
-	/* ¸ù¾İIntervalµÄĞÅÏ¢£¬¶Ôend½øĞĞÅÅĞò¡£Ğ¡µÄ·ÅÔÚÇ°Ãæ¡£
-	 * Ã¿´Î±È½ÏiµÄstartºÍi-1µÄend´óĞ¡¡£
+	/* æ ¹æ®Intervalçš„ä¿¡æ¯ï¼Œå¯¹endè¿›è¡Œæ’åºã€‚å°çš„æ”¾åœ¨å‰é¢ã€‚
+	 * æ¯æ¬¡æ¯”è¾ƒiçš„startå’Œi-1çš„endå¤§å°ã€‚
 	 * */
 	
     public int eraseOverlapIntervals(Interval[] intervals) {
@@ -30,7 +30,7 @@ public class Solution435 {
         }
         Arrays.sort(intervals, new myComparator());
         int end = intervals[0].end;
-        int count = 1;     //	²»Ó¦¸ÃÉ¾³ıµÄÊıÄ¿   
+        int count = 1;     //	ä¸åº”è¯¥åˆ é™¤çš„æ•°ç›®   
 
         for (int i = 1; i < intervals.length; i++) {
             if (intervals[i].start >= end) {
@@ -38,11 +38,10 @@ public class Solution435 {
                 count++;
             }
         }
-        return intervals.length - count;	// ÕâĞ©²ÅÓ¦¸ÃÉ¾³ı
+        return intervals.length - count;	// è¿™äº›æ‰åº”è¯¥åˆ é™¤
     }
     
     class myComparator implements Comparator<Interval> {
-    	@Override
         public int compare(Interval a, Interval b) {
             return a.end - b.end;
         }
