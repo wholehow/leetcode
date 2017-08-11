@@ -3,29 +3,29 @@ package heap;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-/* ³¬¼¶³óÊı¡£±àĞ´³ÌĞòÑ°ÕÒµÚn¸ö¡°³¬¼¶³óÊı¡±.
- * ³¬¼¶³óÊıÊÇÖ¸Ö»°üº¬¸ø¶¨µÄk¸öÖÊÒò×ÓµÄÕıÊı¡£ÀıÈç£¬¸ø¶¨³¤¶ÈÎª4µÄÖÊÊıĞòÁĞprimes = [2, 7, 13, 19]£¬
- * Ç°12¸ö³¬¼¶³óÊıĞòÁĞÎª£º[1, 2, 4, 7, 8, 13, 14, 16, 19, 26, 28, 32]
- * ×¢Òâ£º
- * 1.1±»ÈÏÎªÊÇ³¬¼¶³óÊı£¬ÎŞÂÛ¸ø¶¨ÔõÑùµÄÖÊÊıÁĞ±í.
- * 2.¸ø¶¨µÄÖÊÊıÁĞ±íÒÔÉıĞòÅÅÁĞ.
- * 3.0 < k ¡Ü 100, 0 < n ¡Ü 10^6, 0 < primes[i] < 1000.
+/* è¶…çº§ä¸‘æ•°ã€‚ç¼–å†™ç¨‹åºå¯»æ‰¾ç¬¬nä¸ªâ€œè¶…çº§ä¸‘æ•°â€.
+ * è¶…çº§ä¸‘æ•°æ˜¯æŒ‡åªåŒ…å«ç»™å®šçš„kä¸ªè´¨å› å­çš„æ­£æ•°ã€‚ä¾‹å¦‚ï¼Œç»™å®šé•¿åº¦ä¸º4çš„è´¨æ•°åºåˆ—primes = [2, 7, 13, 19]ï¼Œ
+ * å‰12ä¸ªè¶…çº§ä¸‘æ•°åºåˆ—ä¸ºï¼š[1, 2, 4, 7, 8, 13, 14, 16, 19, 26, 28, 32]
+ * æ³¨æ„ï¼š
+ * 1.1è¢«è®¤ä¸ºæ˜¯è¶…çº§ä¸‘æ•°ï¼Œæ— è®ºç»™å®šæ€æ ·çš„è´¨æ•°åˆ—è¡¨.
+ * 2.ç»™å®šçš„è´¨æ•°åˆ—è¡¨ä»¥å‡åºæ’åˆ—.
+ * 3.0 < k â‰¤ 100, 0 < n â‰¤ 10^6, 0 < primes[i] < 1000.
  * */
 
 public class Solution313 {
 	
-	/* 1.Êı×éÊµÏÖ¡£½«Ç°n¸ö³¬¼¶³óÊıÈ«¶¼ÕÒ³öÀ´´æµ½uglyÊı×éÖĞ¡£
+	/* 1.æ•°ç»„å®ç°ã€‚å°†å‰nä¸ªè¶…çº§ä¸‘æ•°å…¨éƒ½æ‰¾å‡ºæ¥å­˜åˆ°uglyæ•°ç»„ä¸­ã€‚
 	 * */
 	
 	/*public int nthSuperUglyNumber(int n, int[] primes) {
 	    int[] ugly = new int[n];
 	    int[] idx = new int[primes.length];
-	    ugly[0] = 1;	// ¸ù¾İÌâÄ¿£¬µÚÒ»¸öÒ»¶¨ÊÇ1
+	    ugly[0] = 1;	// æ ¹æ®é¢˜ç›®ï¼Œç¬¬ä¸€ä¸ªä¸€å®šæ˜¯1
 	    for (int i = 1; i < n; i++) {
 	        ugly[i] = Integer.MAX_VALUE;
 	        for (int j = 0; j < primes.length; j++)
 	            ugly[i] = Math.min(ugly[i], primes[j] * ugly[idx[j]]);
-	        // ¹ıÂËµô¿ÉÄÜÖØ¸´µÄ
+	        // è¿‡æ»¤æ‰å¯èƒ½é‡å¤çš„
 	        for (int j = 0; j < primes.length; j++) {
 	            while (primes[j] * ugly[idx[j]] <= ugly[i]) {
 	            	idx[j]++;
@@ -35,7 +35,7 @@ public class Solution313 {
 	    return ugly[n - 1];
 	}*/
 	
-	/* ÔÚ1µÄ»ù´¡ÉÏÖ®¼ÊÈ¥µôÖØ¸´µÄ
+	/* åœ¨1çš„åŸºç¡€ä¸Šä¹‹é™…å»æ‰é‡å¤çš„
 	 * */
 	
 	/*public int nthSuperUglyNumber(int n, int[] primes) {
@@ -43,12 +43,12 @@ public class Solution313 {
         int[] idx = new int[primes.length];
         int[] val = new int[primes.length];
         Arrays.fill(val, 1);
-        int next = 1;	// ¸ù¾İÌâÄ¿£¬µÚÒ»¸öÒ»¶¨ÊÇ1
+        int next = 1;	// æ ¹æ®é¢˜ç›®ï¼Œç¬¬ä¸€ä¸ªä¸€å®šæ˜¯1
         for (int i = 0; i < n; i++) {
             ugly[i] = next;
             next = Integer.MAX_VALUE;
             for (int j = 0; j < primes.length; j++) {
-                // Ö±½ÓÌø¹ıÖØ¸´
+                // ç›´æ¥è·³è¿‡é‡å¤
                 if (val[j] == ugly[i]) {
                 	val[j] = ugly[idx[j]++] * primes[j];
                 }
@@ -58,7 +58,7 @@ public class Solution313 {
         return ugly[n - 1];
     }*/
 	
-	/* ¶ÑÅÅĞò
+	/* å †æ’åºã€‚æ„Ÿè§‰è¿™ä¸ªæ–¹æ³•ä¸å¥½å†™ï¼Œå‚ç…§åˆ«äººå†™çš„ã€‚
 	 * */
 	
 	public int nthSuperUglyNumber(int n, int[] primes) {
@@ -67,7 +67,7 @@ public class Solution313 {
 	    for (int i = 0; i < primes.length; i++) {
 	    	pq.add(new Num(primes[i], 1, primes[i]));
 	    }
-	    ugly[0] = 1;	// ¸ù¾İÌâÄ¿£¬µÚÒ»¸öÒ»¶¨ÊÇ1
+	    ugly[0] = 1;	// æ ¹æ®é¢˜ç›®ï¼Œç¬¬ä¸€ä¸ªä¸€å®šæ˜¯1
 	    for (int i = 1; i < n; i++) {
 	        ugly[i] = pq.peek().val;
 	        while (pq.peek().val == ugly[i]) {
@@ -80,7 +80,7 @@ public class Solution313 {
 	private class Num implements Comparable<Num> {
 	    int val;	
 	    int idx;	
-	    int p;	// ËØÊıµÄÖµ
+	    int p;	// ç´ æ•°çš„å€¼
 	    public Num(int val, int idx, int p) {
 	        this.val = val;
 	        this.idx = idx;
