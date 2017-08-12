@@ -1,20 +1,20 @@
 package array;
 
-/* ´óÒâ£º
- * Î´ÅÅÐòÊý×éÖÐºÍ×î´óµÄ×ÓÊý×é£¨ÖÁÉÙ°üº¬Ò»¸öÊý×Ö£©¡£
+/* å¤§æ„ï¼š
+ * æœªæŽ’åºæ•°ç»„ä¸­å’Œæœ€å¤§çš„å­æ•°ç»„ï¼ˆè‡³å°‘åŒ…å«ä¸€ä¸ªæ•°å­—ï¼‰ã€‚
  * 
- * ÀýÈç£º
- * ÊäÈë£º[-2,1,-3,4,-1,2,1,-5,4]
- * Êä³ö£º[4,-1,2,1]µÄ×î´óºÍÎª6¡£
+ * ä¾‹å¦‚ï¼š
+ * è¾“å…¥ï¼š[-2,1,-3,4,-1,2,1,-5,4]
+ * è¾“å‡ºï¼š[4,-1,2,1]çš„æœ€å¤§å’Œä¸º6ã€‚
  * */
 
 public class Solution53 {
 	
-	/* ÕâÌâÊÇÒ»µÀ¾­µäµÄdpÎÊÌâ£¬ÎÒÃÇ¿ÉÒÔºÜÈÝÒ×µÄµÃµ½Æädp·½³Ì£¬¼ÙÉèdp[i]ÊÇÊý×énums[0, i]Çø¼ä×î´óµÄÖµ£¬ÄÇÃ´
+	/* è¿™é¢˜æ˜¯ä¸€é“ç»å…¸çš„dpé—®é¢˜ï¼Œæˆ‘ä»¬å¯ä»¥å¾ˆå®¹æ˜“çš„å¾—åˆ°å…¶dpæ–¹ç¨‹ï¼Œå‡è®¾dp[i]æ˜¯æ•°ç»„nums[0, i]åŒºé—´æœ€å¤§çš„å€¼ï¼Œé‚£ä¹ˆ
 	 * dp[i + 1] = max(dp[i], dp[i] + nums[i + 1])
 	 * */
 	
-    /*public int maxSubArray(int[] nums) {
+    public int maxSubArray(int[] nums) {
         if (nums == null || nums.length == 0){
             return 0;
         }
@@ -26,17 +26,17 @@ public class Solution53 {
             sum = Math.max(sum, 0);
         }
         return max;
-    }*/
+    }
 	
-	/* ËäÈ»ÕâµÀÌâÄ¿ÓÃdp½âÆðÀ´ºÜ¼òµ¥£¬µ«ÊÇÌâÄ¿ËµÁË£¬ÎÊÎÒÃÇÄÜ²»ÄÜ²ÉÓÃdivide and conquerµÄ·½·¨½â´ð£¬Ò²¾ÍÊÇ¶þ·Ö·¨¡£
-	 * ¼ÙÉèÊý×énums[left, right]´æÔÚ×î´óÇø¼ä£¬mid = (left + right) / 2£¬ÄÇÃ´ÎÞ·Ç¾ÍÊÇÈýÖÐÇé¿ö£º
-	 * 1.×î´óÖµÔÚnums[left, mid - 1]ÀïÃæ
-	 * 2.×î´óÖµÔÚnums[mid + 1, right]ÀïÃæ
-	 * 3.×î´óÖµ¿ç¹ýÁËmid£¬Ò²¾ÍÊÇÎÒÃÇÐèÒª¼ÆËã[left, mid - 1]Çø¼äµÄ×î´óÖµ£¬ÒÔ¼°[mid + 1, right]µÄ×î´óÖµ£¬
-	 * È»ºó¼ÓÉÏmid£¬ÈýÕßÖ®ºÍ¾ÍÊÇ×ÜµÄ×î´óÖµ
+	/* è™½ç„¶è¿™é“é¢˜ç›®ç”¨dpè§£èµ·æ¥å¾ˆç®€å•ï¼Œä½†æ˜¯é¢˜ç›®è¯´äº†ï¼Œé—®æˆ‘ä»¬èƒ½ä¸èƒ½é‡‡ç”¨divide and conquerçš„æ–¹æ³•è§£ç­”ï¼Œä¹Ÿå°±æ˜¯äºŒåˆ†æ³•ã€‚
+	 * å‡è®¾æ•°ç»„nums[left, right]å­˜åœ¨æœ€å¤§åŒºé—´ï¼Œmid = (left + right) / 2ï¼Œé‚£ä¹ˆæ— éžå°±æ˜¯ä¸‰ä¸­æƒ…å†µï¼š
+	 * 1.æœ€å¤§å€¼åœ¨nums[left, mid - 1]é‡Œé¢
+	 * 2.æœ€å¤§å€¼åœ¨nums[mid + 1, right]é‡Œé¢
+	 * 3.æœ€å¤§å€¼è·¨è¿‡äº†midï¼Œä¹Ÿå°±æ˜¯æˆ‘ä»¬éœ€è¦è®¡ç®—[left, mid - 1]åŒºé—´çš„æœ€å¤§å€¼ï¼Œä»¥åŠ[mid + 1, right]çš„æœ€å¤§å€¼ï¼Œ
+	 * ç„¶åŽåŠ ä¸Šmidï¼Œä¸‰è€…ä¹‹å’Œå°±æ˜¯æ€»çš„æœ€å¤§å€¼
 	 * */
 	
-	public int maxSubArray(int[] nums) {
+	/*public int maxSubArray(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return 0;
 		}
@@ -47,24 +47,24 @@ public class Solution53 {
 			return Integer.MIN_VALUE;
 		}
 		int mid = (left + right) / 2;
-		//1.×î´óÖµÔÚnums[left, mid - 1]ÀïÃæ
-		int lmax = divide(nums, left, mid, tmpMax);  //µÃµ½×ÓÇø¼ä[left, mid - 1]×î´óÖµ
-		//2.×î´óÖµÔÚnums[mid + 1, right]ÀïÃæ
-		int rmax = divide(nums, mid + 1, right, tmpMax);  //µÃµ½×ÓÇø¼ä[mid + 1, right]×î´óÖµ
+		//1.æœ€å¤§å€¼åœ¨nums[left, mid - 1]é‡Œé¢
+		int lmax = divide(nums, left, mid, tmpMax);  //å¾—åˆ°å­åŒºé—´[left, mid - 1]æœ€å¤§å€¼
+		//2.æœ€å¤§å€¼åœ¨nums[mid + 1, right]é‡Œé¢
+		int rmax = divide(nums, mid + 1, right, tmpMax);  //å¾—åˆ°å­åŒºé—´[mid + 1, right]æœ€å¤§å€¼
 		
 		tmpMax = Math.max(tmpMax, lmax);
 		tmpMax = Math.max(tmpMax, rmax);
 		
-		//3.×î´óÖµ¿ç¹ýÁËmid
+		//3.æœ€å¤§å€¼è·¨è¿‡äº†mid
 		int sum;
-		//µÃµ½[left, mid - 1]×î´óÖµ
+		//å¾—åˆ°[left, mid - 1]æœ€å¤§å€¼
 		sum = 0; 
 		int mlmax = 0;
 		for (int i = mid - 1; i >= left; i--) {
 			sum += nums[i];
 			mlmax = Math.max(mlmax, sum);
 		}
-		//µÃµ½[mid + 1, right]×î´óÖµ
+		//å¾—åˆ°[mid + 1, right]æœ€å¤§å€¼
 		sum = 0;
 		int mrmax = 0;
 		for (int i = mid + 1; i <= right; i++) {
@@ -73,5 +73,5 @@ public class Solution53 {
 		}
 		tmpMax = Math.max(tmpMax, mlmax + mrmax + nums[mid]);
 		return tmpMax;
-	}
+	}*/
 }
