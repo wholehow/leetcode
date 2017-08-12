@@ -2,33 +2,33 @@ package array;
 
 import java.util.Arrays;
 
-/* ´óÒâ£º
- * ¸ø³öÒ»¸ö³ß´çÎªnµÄÊý×é£¬ÕÒµ½Ö÷ÒªµÄÔªËØ¡£
- * ËùÎ½Ö÷ÒªµÄÔªËØÊÇÖ¸³öÏÖ´ÎÊý³¬¹ýn/2µÄÔªËØ¡£ 
- * Äã¿ÉÒÔ¼ÙÉèÊý×é²»Îª¿ÕÇÒÖ÷ÒªÔªËØÒ»¶¨´æÔÚ¡£
+/* å¤§æ„ï¼š
+ * ç»™å‡ºä¸€ä¸ªå°ºå¯¸ä¸ºnçš„æ•°ç»„ï¼Œæ‰¾åˆ°ä¸»è¦çš„å…ƒç´ ã€‚
+ * æ‰€è°“ä¸»è¦çš„å…ƒç´ æ˜¯æŒ‡å‡ºçŽ°æ¬¡æ•°è¶…è¿‡n/2çš„å…ƒç´ ã€‚ 
+ * ä½ å¯ä»¥å‡è®¾æ•°ç»„ä¸ä¸ºç©ºä¸”ä¸»è¦å…ƒç´ ä¸€å®šå­˜åœ¨ã€‚
  * */
 
 public class Solution169 {
 	
-	/* ×î¼òµ¥µÄË¼Â·£ºÖ±½Ó¶ÔnumsÅÅÐò£¬ÄÇÃ´³öÏÖ´ÎÊý³¬¹ýn/2µÄÔªËØÒ»¶¨³öÏÖÔÚn/2µÄÎ»ÖÃ¡£
-	 * Ê±¼ä¸´ÔÓ¶ÈÖ÷ÒªÈ¡¾öÈ¥ÅÅÐòËã·¨µÄÑ¡Ôñ¡£
+	/* æœ€ç®€å•çš„æ€è·¯ï¼šç›´æŽ¥å¯¹numsæŽ’åºï¼Œé‚£ä¹ˆå‡ºçŽ°æ¬¡æ•°è¶…è¿‡n/2çš„å…ƒç´ ä¸€å®šå‡ºçŽ°åœ¨n/2çš„ä½ç½®ã€‚
+	 * æ—¶é—´å¤æ‚åº¦ä¸»è¦å–å†³åŽ»æŽ’åºç®—æ³•çš„é€‰æ‹©ã€‚
 	 * */
 	
-    /*public int majorityElement(int[] nums) {
+    public int majorityElement(int[] nums) {
         Arrays.sort(nums);
         return nums[nums.length / 2];
-    }*/
+    }
 	
-	/* µÚ¶þÖÖË¼Â·£º²»½öÊÊÓÃÓÚn/2µÄÇéÐÎ£¬»¹¿ÉÒÔÓÃÓÚn/kµÄÇéÐÎ¡£
-	 * ³öÏÖ´ÎÊý´óÓÚÒ»°ëµÄÊý×î¶à»áÓÐÒ»¸ö£¬»¹¿ÉÄÜ²»´æÔÚ¡£
-	 * ÎÒÃÇÒ»´ÎÔÚÊý×éÖÐÉ¾³ýÁ½¸ö²»Í¬µÄÊý£¬²»Í£µØÉ¾³ý£¬Ö±µ½Ê£ÏÂµÄÊýÖ»ÓÐÒ»ÖÖ¡£
-	 * Èç¹ûÒ»¸öÊý³öÏÖ´ÎÊý´óÓÚn/2£¬×îºóÒ»¶¨»áÁôÏÂÀ´¡£
+	/* ç¬¬äºŒç§æ€è·¯ï¼šä¸ä»…é€‚ç”¨äºŽn/2çš„æƒ…å½¢ï¼Œè¿˜å¯ä»¥ç”¨äºŽn/kçš„æƒ…å½¢ã€‚
+	 * å‡ºçŽ°æ¬¡æ•°å¤§äºŽä¸€åŠçš„æ•°æœ€å¤šä¼šæœ‰ä¸€ä¸ªï¼Œè¿˜å¯èƒ½ä¸å­˜åœ¨ã€‚
+	 * æˆ‘ä»¬ä¸€æ¬¡åœ¨æ•°ç»„ä¸­åˆ é™¤ä¸¤ä¸ªä¸åŒçš„æ•°ï¼Œä¸åœåœ°åˆ é™¤ï¼Œç›´åˆ°å‰©ä¸‹çš„æ•°åªæœ‰ä¸€ç§ã€‚
+	 * å¦‚æžœä¸€ä¸ªæ•°å‡ºçŽ°æ¬¡æ•°å¤§äºŽn/2ï¼Œæœ€åŽä¸€å®šä¼šç•™ä¸‹æ¥ã€‚
 	 * */
 	
-	public int majorityElement(int[] nums) {
+	/*public int majorityElement(int[] nums) {
 		int cand = 0;
 		int times = 0;
-		//Ê×ÏÈÊÇÕÒµ½¿ÉÄÜÊÇ´ÎÊý´óÓÚn/2µÄÊý
+		//é¦–å…ˆæ˜¯æ‰¾åˆ°å¯èƒ½æ˜¯æ¬¡æ•°å¤§äºŽn/2çš„æ•°
 		for (int i = 0; i < nums.length; i++) {
 			if (times == 0) {
 				cand = nums[i];
@@ -39,7 +39,7 @@ public class Solution169 {
 			}
 		}
 		times = 0;
-		//ÅÐ¶ÏÈ·Êµ´óÓÚn/2´Î
+		//åˆ¤æ–­ç¡®å®žå¤§äºŽn/2æ¬¡
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] == cand) {
 				times++;
@@ -49,5 +49,5 @@ public class Solution169 {
 			}
 		}
 		return cand;
-	}
+	}*/
 }
