@@ -1,51 +1,54 @@
 package graph;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-/* ´óÒâ£º
- * ÒÔËãÊ½A / B = kµÄĞÎÊ½¸ø³öÈô¸ÉµÈÊ½£¬ÆäÖĞAºÍBÊÇÒÔ×Ö·û´®±íÊ¾µÄ±äÁ¿£¬kÊÇÊµÊı£¨¸¡µãÊı£©¡£¸ø¶¨Ò»Ğ©²éÑ¯£¬·µ»Ø½á¹û¡£Èç¹û´ğ°¸²»´æÔÚ£¬·µ»Ø -1.0¡£
- * ÊäÈë£ºa / b = 2.0, b / c = 3.0
- * ²éÑ¯Îª£ºa / c = ?, b / a = ?, a / e = ?, a / a = ?, x / x = ? 
- * Êä³ö£º[6.0, 0.5, -1.0, 1.0, -1.0 ]
- * ÊäÈëÎª£ºvector<pair<string, string>> euqations, vector<double>& values, vector<pair<string, string>> query¡£
- * ÆäÖĞ equations.size() == values.size()£¬values×ÜÊÇÕıÊı¡£
- * ¸ù¾İÒÔÉÏÓĞ£º
+/* å¤§æ„ï¼š
+ * ä»¥ç®—å¼A / B = kçš„å½¢å¼ç»™å‡ºè‹¥å¹²ç­‰å¼ï¼Œå…¶ä¸­Aå’ŒBæ˜¯ä»¥å­—ç¬¦ä¸²è¡¨ç¤ºçš„å˜é‡ï¼Œkæ˜¯å®æ•°ï¼ˆæµ®ç‚¹æ•°ï¼‰ã€‚ç»™å®šä¸€äº›æŸ¥è¯¢ï¼Œè¿”å›ç»“æœã€‚å¦‚æœç­”æ¡ˆä¸å­˜åœ¨ï¼Œè¿”å› -1.0ã€‚
+ * è¾“å…¥ï¼ša / b = 2.0, b / c = 3.0
+ * æŸ¥è¯¢ä¸ºï¼ša / c = ?, b / a = ?, a / e = ?, a / a = ?, x / x = ? 
+ * è¾“å‡ºï¼š[6.0, 0.5, -1.0, 1.0, -1.0 ]
+ * è¾“å…¥ä¸ºï¼švector<pair<string, string>> euqations, vector<double>& values, vector<pair<string, string>> queryã€‚
+ * å…¶ä¸­ equations.size() == values.size()ï¼Œvaluesæ€»æ˜¯æ­£æ•°ã€‚
+ * æ ¹æ®ä»¥ä¸Šæœ‰ï¼š
  * equations = [ ["a", "b"], ["b", "c"] ],
  * values = [2.0, 3.0],
  * queries = [ ["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x", "x"] ]. 
- * ÊäÈëÓÀÔ¶ÊÇÓĞĞ§µÄ¡£Äã¿ÉÒÔ¼ÙÉè²éÑ¯½á¹û²»»á³öÏÖ³ıÁã´í£¬²¢ÇÒµÈÊ½Ö®¼ä²»´æÔÚ³åÍ»¡£
+ * è¾“å…¥æ°¸è¿œæ˜¯æœ‰æ•ˆçš„ã€‚ä½ å¯ä»¥å‡è®¾æŸ¥è¯¢ç»“æœä¸ä¼šå‡ºç°é™¤é›¶é”™ï¼Œå¹¶ä¸”ç­‰å¼ä¹‹é—´ä¸å­˜åœ¨å†²çªã€‚
  * */
 
 public class Solution399 {
 	
-	/* Í¼a/b = k×÷Îª½ÚµãaºÍbÖ®¼äµÄÁ´½Ó£¬´Óaµ½bµÄÈ¨ÖØÎªk£¬·´ÏòÁ´Â·Îª1/k¡£²éÑ¯ÊÇÔÚÁ½¸ö½ÚµãÖ®¼äÕÒµ½Â·¾¶¡£
+	/* å›¾a/b = kä½œä¸ºèŠ‚ç‚¹aå’Œbä¹‹é—´çš„é“¾æ¥ï¼Œä»aåˆ°bçš„æƒé‡ä¸ºkï¼Œåå‘æƒé‡ä¸º1/kã€‚æŸ¥è¯¢æ˜¯åœ¨ä¸¤ä¸ªèŠ‚ç‚¹ä¹‹é—´æ‰¾åˆ°è·¯å¾„ã€‚
 	 * */
 	
     public double[] calcEquation(String[][] equations, double[] values, String[][] queries) {
         HashMap<String, HashMap<String, Double>> map = new HashMap<String, HashMap<String, Double>>();
         for (int i = 0; i < equations.length; i++) {
-        	// ¸ù¾İÌâÄ¿ÒªÇó£¬ÎÒÃÇĞèÒª¹¹ÔìÎŞÏòÍ¼
+        	// æ ¹æ®é¢˜ç›®è¦æ±‚ï¼Œæˆ‘ä»¬éœ€è¦æ„é€ æ— å‘å›¾
             if (!map.containsKey(equations[i][0])) {
                 map.put(equations[i][0], new HashMap<String, Double>());
             }
             if (!map.containsKey(equations[i][1])) {
                 map.put(equations[i][1], new HashMap<String, Double>());
             }
+            // ä»aåˆ°bçš„æƒé‡ä¸ºkï¼Œåå‘æƒé‡ä¸º1/k
             map.get(equations[i][0]).put(equations[i][1], values[i]);
             map.get(equations[i][1]).put(equations[i][0], 1 / values[i]);
         }
         double[] res = new double[queries.length];
         for (int i = 0; i < queries.length; i++) {
+        	// aå’Œbèƒ½çº³å…¥æˆ‘ä»¬æ„é€ çš„æ— å‘å›¾ä¸­
             if (map.containsKey(queries[i][0]) && map.containsKey(queries[i][1])) {
+            	// aå’Œbé‡åˆ
                 if (queries[i][0] == queries[i][1])
                     res[i] = 1.0;
                 else {
-                    double judg = dfs(queries[i][0], queries[i][1], new HashSet<String>(), map, 1.0);
-                    res[i] = judg == 0.0 ? -1.0 : judg;
+                    double tmp = dfs(queries[i][0], queries[i][1], new HashSet<String>(), map, 1.0);
+                    res[i] = tmp == 0.0 ? -1.0 : tmp;
                 }
             }
+         // aå’Œbä¸èƒ½çº³å…¥æˆ‘ä»¬æ„é€ çš„æ— å‘å›¾ä¸­
             else res[i] = -1.0;
         }
         return res;
@@ -59,6 +62,9 @@ public class Solution399 {
             if (!visited.contains(neighbor)) {
                 visited.add(neighbor);
                 tmp = dfs(neighbor, t, visited, map, val * map.get(s).get(neighbor));
+                // ä¸ºä»€ä¹ˆåªè¦tmpä¸ä¸º0æˆ‘ä»¬å°±è¿”å›å‘¢ï¼Ÿä»”ç»†æƒ³æƒ³ï¼Œå¯¹äºæ— å‘å›¾ï¼Œä»aå¯ä»¥åˆ°bæ„å‘³ç€ä»bä¹Ÿä¸€å®šå¯ä»¥åˆ°a
+                // å› ä¸ºæ˜¯dfsï¼Œå¦‚æœç¬¬ä¸€æ¬¡å¯¹äºaæˆ‘ä»¬è¯•å›¾ç©·å°½å’Œå…¶ç›´è§‚ç›¸é‚»çš„æ‰€æœ‰é¡¶ç‚¹ï¼Œé‚£ä¹ˆä¹‹åæ–¹ä½açš„æ‰€æœ‰é‚»å±…æ—¶ï¼Œç»“æœä¸€å®šä¼šé‡å¤
+                // ä¹Ÿå°±æ˜¯è¯´ï¼Œæœ€ç»ˆç»“æœä¼šé‡å¤ä¸¤æ¬¡
                 if (tmp != 0.0) break;
             }
         }
