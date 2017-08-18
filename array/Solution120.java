@@ -1,6 +1,6 @@
 package array;
 
-import java.awt.List;
+import java.util.List;
 
 /* 大意：
  * 给定一个三角形，从顶部到底部找到最小路径和。每个步骤，可以移动到下面的行上的相邻数字。
