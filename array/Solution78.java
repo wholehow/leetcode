@@ -1,20 +1,20 @@
 package array;
 
-import java.awt.List;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/* ´óÒâ:
- * ¸ø¶¨Ò»×é²»Í¬µÄÕûÊı£¬nums£¬·µ»ØËùÓĞ¿ÉÄÜµÄ×Ó¼¯¡£
+/* å¤§æ„:
+ * ç»™å®šä¸€ç»„ä¸åŒçš„æ•´æ•°ï¼Œnumsï¼Œè¿”å›æ‰€æœ‰å¯èƒ½çš„å­é›†ã€‚
  * */
 
 public class Solution78 {
 	
-	/* Ò»¸ö°üº¬N¸öÕûÊıµÄ¼¯ºÏµÄ×Ó¼¯¹²ÓĞ2^N¸ö¡£
-	 * ÆğÊ¼subset¼¯Îª£º[]
-	 * Ìí¼ÓS0ºóÎª£º[], [S0]
-	 * Ìí¼ÓS1ºóÎª£º[], [S0], [S1], [S0, S1]
-	 * Ìí¼ÓS2ºóÎª£º[], [S0], [S1], [S0, S1], [S2], [S0, S2], [S1, S2], [S0, S1, S2]
+	/* ä¸€ä¸ªåŒ…å«Nä¸ªæ•´æ•°çš„é›†åˆçš„å­é›†å…±æœ‰2^Nä¸ªã€‚
+	 * èµ·å§‹subseté›†ä¸ºï¼š[]
+	 * æ·»åŠ S0åä¸ºï¼š[], [S0]
+	 * æ·»åŠ S1åä¸ºï¼š[], [S0], [S1], [S0, S1]
+	 * æ·»åŠ S2åä¸ºï¼š[], [S0], [S1], [S0, S1], [S2], [S0, S2], [S1, S2], [S0, S1, S2]
 	 * */
 	
     public List<List<Integer>> subsets(int[] nums) {
@@ -22,7 +22,7 @@ public class Solution78 {
         if (nums == null) {
         	return resList;
         }
-        // µÚÒ»¸ö[]
+        // ç¬¬ä¸€ä¸ª[]
         resList.add(new ArrayList<>());
         Arrays.sort(nums);
         // for-each
