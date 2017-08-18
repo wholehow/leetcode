@@ -1,6 +1,6 @@
 package array;
 
-import java.awt.List;
+import java.util.List;
 import java.util.ArrayList;
 
 /* 找到数组中所有重复的元素。
