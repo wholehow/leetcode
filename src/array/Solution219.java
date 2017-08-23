@@ -32,7 +32,7 @@ public class Solution219 {
         return false;
     }*/
 	
-	/* HashSet
+	/* HashSet。始终保持set的大小为k，如果当前走到位置i>k且nums[i]无法插入，说明set中已经有这个数了，那么它一定和规范的。
 	 * */
 	
     public boolean containsNearbyDuplicate(int[] nums, int k) {
