@@ -22,7 +22,7 @@ public class Solution63 {
 	/* ·ÇÑ¹Ëõ
 	 * */
 	
-    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+/*    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
     	int m = obstacleGrid.length, n = obstacleGrid[0].length;
     	int[][] dp = new int[m][n];
     	dp[0][0] = obstacleGrid[0][0] ^ 1;
@@ -41,12 +41,12 @@ public class Solution63 {
     		}
     	}
     	return dp[m - 1][n - 1];
-    }
+    }*/
     
     /* Ñ¹Ëõ
      * */
     
-    /*public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+	public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int width = obstacleGrid[0].length;
         int[] dp = new int[width];
         dp[0] = 1;
@@ -60,5 +60,5 @@ public class Solution63 {
             }
         }
         return dp[width - 1];
-    }*/
+    }
 }
