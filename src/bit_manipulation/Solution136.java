@@ -12,10 +12,10 @@ public class Solution136 {
         if(nums == null || nums.length == 0) {
             return -1;
         }
-        int rst = 0;
+        int res = 0;
         for (int i = 0; i < nums.length; i++) {
-            rst ^= nums[i];
+            res ^= nums[i];
         }
-        return rst;
+        return res;
     }
 }

@@ -15,11 +15,11 @@ public class Solution231 {
         if (n < 0) {
         	return false;
         }
-        String binaryStr = Integer.toBinaryString(n);
-        for (int i = 0; i < binaryStr.length(); i++) {
-            if (i == 0 && binaryStr.charAt(i) != '1') {
+        String binaStr = Integer.toBinaryString(n);
+        for (int i = 0; i < binaStr.length(); i++) {
+            if (i == 0 && binaStr.charAt(i) != '1') {
             	return false;
-            } else if (i > 0 && binaryStr.charAt(i) != '0') {
+            } else if (i > 0 && binaStr.charAt(i) != '0') {
             	return false;
             }
         }
