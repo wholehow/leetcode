@@ -7,9 +7,9 @@ package backtracking;
  * 例如：
  * 输入:2
  * 输出：2
- * The first beautiful arrangement is [1, 2]
+ * 第一个美丽序列是[1, 2]
  * 1可以被位置1整除，2可以被位置二整除
- * The second beautiful arrangement is [2, 1]
+ * 第二个美丽序列是[2, 1]
  * 同理
  * */
 
