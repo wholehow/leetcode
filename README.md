@@ -145,3 +145,8 @@ Collections.min(obj)/Collections.max(obj)
 
 Collections.IndexOfSubList(list, li)/Collestions.LastIndexOfSubList(list,li)
 
+Math.abs
+
+Math.min/Math.max
+
+Math.ceil/Math.floor/Math.round
