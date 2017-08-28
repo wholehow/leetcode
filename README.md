@@ -127,8 +127,21 @@ void mergeSort(int[] arr, int left, int right) {
 
 实现该算法的过程：
 
->从问题的某一初始解出发；
+> 从问题的某一初始解出发；
 
->while 能朝给定总目标前进一步 do ,求出可行解的一个解元素；
+> while 能朝给定总目标前进一步 do ,求出可行解的一个解元素；
 
->最后，由所有解元素组合成问题的一个可行解。
+> 最后，由所有解元素组合成问题的一个可行解。
+
+## 7. 常用方法
+
+Collections.sort(obj)
+
+Collections.binarySearch(obj)
+
+Collections.reverse(obj)
+
+Collections.min(obj)/Collections.max(obj)
+
+Collections.IndexOfSubList(list, li)/Collestions.LastIndexOfSubList(list,li)
+
