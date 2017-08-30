@@ -155,3 +155,9 @@ Math.abs
 Math.min/Math.max
 
 Math.ceil/Math.floor/Math.round
+
+List.add(0, Obj)用来实现层次遍历倒序输出
+
+TreeMap有序的哈希表
+
+PriorityQueue用以实现堆排序
