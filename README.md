@@ -160,4 +160,4 @@ List.add(0, Obj)用来实现层次遍历倒序输出
 
 TreeMap有序的哈希表
 
-PriorityQueue用以实现堆排序
+PriorityQueue用以实现堆排序，可以选择实现Compare接口
