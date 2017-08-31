@@ -14,23 +14,24 @@ public class Solution515 {
 	 * */
 	
     public List<Integer> largestValues(TreeNode root) {
-        Queue<TreeNode> q = new LinkedList<>();
-        TreeNode x = root;
-        if (null != x) q.offer(x);
-        
+        Queue<TreeNode> queue = new LinkedList<>();
+        if (root != null) {
+        	queue.offer(root);
+        }
         List<Integer> res = new ArrayList<>();
-        while (!q.isEmpty()) {
+        while (!queue.isEmpty()) {
             int max = Integer.MIN_VALUE;
-            int sz = q.size();
-            for (int i = 0; i < sz; ++i) {
-                TreeNode node = q.poll();
+            int size = queue.size();
+            for (int i = 0; i < size; ++i) {
+                TreeNode node = queue.poll();
                 max = Math.max(max, node.val);
-                if (null != node.left)  q.offer(node.left);
-                if (null != node.right) q.offer(node.right);
+                if (null != node.left)  
+                	queue.offer(node.left);
+                if (null != node.right) 
+                	queue.offer(node.right);
             }
             res.add(max);
         }
-        
         return res;
     }
 }
