@@ -63,8 +63,6 @@ public class Solution412 {
                 res.add(String.valueOf(i));
             }
         }
-        int x = 12;
-        char[] chs = String.valueOf(x).toCharArray()
         return res;
     }
 }
