@@ -14,15 +14,15 @@ public class Solution515 {
 	 * */
 	
     public List<Integer> largestValues(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
+    	List<Integer> res = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
         if (root != null) {
         	queue.offer(root);
         }
-        List<Integer> res = new ArrayList<>();
         while (!queue.isEmpty()) {
             int max = Integer.MIN_VALUE;
             int size = queue.size();
-            for (int i = 0; i < size; ++i) {
+            for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
                 max = Math.max(max, node.val);
                 if (null != node.left)  
