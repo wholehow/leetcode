@@ -27,7 +27,8 @@ public class Solution526 {
         return helper(N, 1, new boolean[N + 1]);
     }
     private int helper(final int N, int idx, boolean[] visited) {
-    	if (idx > N) return 1;
+    	if (idx > N) 
+    		return 1;
     	int res = 0;
     	for (int i = 1; i <= N; i++) {
 			if (!visited[i] && (i % idx == 0 || idx % i == 0)) {
