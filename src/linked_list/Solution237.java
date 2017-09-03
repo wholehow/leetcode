@@ -5,15 +5,6 @@ package linked_list;
  * 假设有一个链表 1->2->3->4，并给你第三个值为3的节点，在调用你的函数之后这个链表应该变成1->2->4。
  * */
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-
 public class Solution237 {
 	
 	/* 一般我们删除一个链表节点，直接将其上一个节点的next指向其下一个节点就可以了，

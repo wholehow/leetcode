@@ -165,3 +165,5 @@ PriorityQueue用以实现堆排序，可以选择实现Compare接口
 Integer.bitCount(int n)返回指定int值的二进制补码表示形式的1位的数量。这有时被称为作为总体计数
 
 ArrayList.add(0, obj)实现由小到大的排列
+
+Arrays.equals(arr1, arr2)判断两个数组是否相同
