@@ -6,15 +6,6 @@ import java.util.Stack;
  * 你能在O（n）的时间复杂度和O（1）的空间复杂度下实现吗？
  * */
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-
 public class Solution234 {
 	
 	/* 时间复杂度O(N)，空间复杂度O(N)的做法就是申请一个新的链表，采用头插法构造的新链表和原链表顺序相反。
