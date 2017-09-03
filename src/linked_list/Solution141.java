@@ -6,26 +6,6 @@ import java.util.HashSet;
  * 进阶： 你能不能不用额外的空间来解决？
  * */
 
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
-
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) {
-         val = x;
-         next = null;
-     }
-}
 public class Solution141 {
 	
 	/* 利用集合的特性可以做到时间复杂度为O(N)，空间复杂度为O(N)
