@@ -1,10 +1,7 @@
 package sort;
 
-
 /* 使用恒定空间复杂度在O(nlogn)时间内对链表进行排序。
  * */
-
-
 
 public class Solution148 {
 	
